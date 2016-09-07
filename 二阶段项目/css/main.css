@@ -1,4 +1,4 @@
-html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img ,i{ margin:0; padding:0; }
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img ,i,input{ margin:0; padding:0; }
 fieldset, img { border:none; }
 img{display: block;}
 address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
@@ -114,3 +114,61 @@ a { color:#999; text-decoration:none; }
 .top-search-tips .active{margin:0 12px 0 16px;}
 .top-link{width: 200px;height: 80px;float: right;background: url(../img/user_header_right.png) no-repeat center;margin-top: 20px;}
 .top-link .top-link-a{width: 33%;height: 80px;float:left;text-indent:-9999px;}
+
+
+/**fixed*/
+#index-fixed{width: 35px;height: 100%;background:#333;position: fixed;right:0;top:0;z-index: 999;}
+.head{width: 35px;height: 35px;margin:119px auto 0;position: relative;margin-bottom: 33px;}
+/*登录*/
+.login{width: 235px;height: 215px;background:#fff;border:1px solid #e4e4e4;position: absolute;left:-270px;top:0;padding-left: 25px;padding-top: 25px;display: none;}
+.icon{width: 8px;height: 100;background:url(../img/icon.jpg) no-repeat left top;position: absolute;right:-8px;top:16px;}
+
+.login-top{height: 24px;}
+.index-login h6{width: 48px;float:left;border-bottom: 2px solid #e31939;font-size: 15px;color:#e31939;line-height: 20px;height: 22px;}
+.index-login span{float:left;margin-left:32px;line-height:20px;color:#666;}
+.index-login a{width: 58px;height: 20px;float:left;background:#e31939;color:#fff;text-align: center;line-height:20px;}
+.login-txtwrap{height: 27px;width: 209px;margin-top: 18px;}
+.login-txtwrap span{line-height: 27px;padding-left: 5px;width: 47px;margin:0;}
+.login-txt{width: 155px;height: 25px;border:1px solid #ddd;float:left;}
+.login-passwrap{height: 27px;width: 209px;margin-top: 13px;}
+.login-passwrap span{line-height: 27px;padding-left: 5px;width: 47px;margin:0;}
+.login-pass{width: 155px;height: 25px;border:1px solid #ddd;float:left;}
+.login-sel{width: 209px;height: 12px;margin:22px 0 19px 0;}
+.login-sel input{width: 10px;height: 10px;float:left;}
+.login-sel span{margin-left: 5px;line-height: 12px;}
+.login-sel a{margin-left: 79px;color:#e31939;background:0;width: auto;line-height: 12px;}
+.index-sub{width: 210px;height: 30px;background:#e31939;color:#fff;text-align: center;line-height: 30px;border:0;}
+.saleo2o{height: 38px;background:#c40000;color:#fff;text-align: center;line-height: 16px;padding-top: 7px;position: relative;}
+/*在线销售*/
+.o2o{width: 130px;height: 122px;background:#fff;border:1px solid #e4e4e4;position: absolute;left:-180px;top:0;padding:20px 20px 0 20px;display: none;}
+.o2o h6{text-align: center;color:#6f6f6f;height: 30px;font-size: 12px;}
+.o2o img{float:left;margin-right: 14px;width: 25px;}
+.o2otop{height: 33px;border-bottom: 1px solid #ededed;line-height: 28px;text-align:left;color:#000;}
+.o2obottom{padding-top: 8px;line-height: 24px;text-align:left;color:#000;}
+
+.research{height: 38px;margin-top: 26px;color:#fff;text-align: center;position: relative;overflow: hidden;}
+.research i{width: 16px;height: 16px;margin:0 auto 8px;display:block;background:url(../img/site_bar.png) no-repeat -8px -9px;}
+/*调查*/
+.researchtest{width: 160px;height: 114px;background:#fff;border:1px solid #e4e4e4;position: absolute;left:-180px;top:0;color:#898989;padding:24px 0 0 10px;text-align: left;display: none;}
+.before{position: absolute;left:0;top:0;height: 100%;width: 100%;}
+.after{background:#c40000;height: 100%;width: 100%;color:#fff;position: absolute;left:0;top:38px;text-align: center;line-height: 16px;padding-top: 5px;}
+
+.shopcar{height: 135px;margin-top: 17px;color:#fff;position: relative;}
+.shopcar i{width: 17px;height: 17px;display:block;background:url(../img/site_bar.png) no-repeat -8px -45px;margin:11px auto 14px;}
+.shopcar p{width: 16px;line-height:18px;margin:0 auto 10px;}
+.shopcar span{text-align: center;width: 35px;display: block;}
+/*购物车*/
+.shopcaritem{width: 320px;height: 134px;background:#fff;border:1px solid #e4e4e4;position: absolute;left:-330px;top:0;text-align: left;display: none;}
+.shopcaritem a{color:#898989;display: block;margin:53px 0 0 52px;}
+.shopcaritem a:hover{text-decoration: underline;color:#f94747;}
+
+.look,.collect,.code{height: 45px;margin-top: 22px;color:#fff;text-align: center;position: relative;}
+.look i{width: 18px;height: 16px;margin:5px auto 9px;display:block;background:url(../img/site_bar.png) no-repeat -8px -80px;}
+.collect i{width: 18px;height: 18px;display:block;background:url(../img/site_bar.png) no-repeat -8px -114px;margin:5px auto 8px;}
+.code i{width: 16px;height: 16px;display:block;background:url(../img/site_bar.png) no-repeat -9px -150px;margin:15px auto 0;}
+/*二维码*/
+.codeitem{width: 160px;height: 138px;background:#fff;border:1px solid #e4e4e4;position: absolute;left:-210px;top:-77px;padding:20px;color:#666;display:none;}
+.codeitem img{margin:0 auto 17px;}
+.totop{height: 45px;position: absolute;bottom:0;right:0;}
+.totop i{width: 17px;height: 14px;display: block;background:url(../img/site_bar.png) no-repeat -9px -185px;margin:auto;}
+.icon2{top:91px;}

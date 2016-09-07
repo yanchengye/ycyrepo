@@ -16,6 +16,12 @@
 #banner-suspend{height: 514px;position: relative;}
 #banner li{position: absolute;width:100%;height:513px;display: none;}
 #banner .active{display: block;}
+/*banner下面的小方块*/
+.banner-square{position:absolute;top:312px;left:210px;background:#fff;width: 200px;height: 13px;padding-top: 7px;padding-left: 590px;opacity: 0.2;filter:alpha(opacity=20);}
+.banner-squlist{width: 24px;height: 6px;background:#000;float:left;margin-right: 4px;}
+.banner-square .active{background: #ff3300;}
+.banner-squlist a{width: 24px;height: 6px;display: block;}
+
 .banner-list{position: absolute;left:0;top:0;width: 208px;height: 513px;display: block;background: rgba(255,255,255,0.7);border: 1px solid #e7e7e7;border-top:0;z-index: 9;}
 .banner-list li{border-top: 1px solid #e7e7e7;padding:15px 0 17px 0;position: relative;z-index: 9;margin:0 auto;}
 .banner-listitem{margin-bottom: 6px;display: block;position: relative;text-indent:42px;width: 180px;}
@@ -58,7 +64,8 @@
 .banner-blog2 li{margin-top: 16px;width: 190px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .banner-blog2 li i{display: inline-block;font-size: 0;width: 2px;height: 2px;background: url(../img/home_bg.png) no-repeat -70px -40px;margin: 5px 6px 0 10px;}
 /*banner里的菜单*/
-.banner-listitem-menu{position: absolute;left:208px;top:0;width: 787px;height: 433px;background: #fff;border:1px solid #de1838;z-index: 9;display:none;}
+.banner-listitem-menu{position: absolute;left:208px;top:0;width: 787px;background: #fff;border:1px solid #de1838;z-index: 90;display:none;height:150px;min-height: 150px;height:auto!important;padding-bottom: 10px;}
+.banner-listitem-menu:after{content:'.';display: block;height:0;clear:both;overflow: hidden;visibility: hidden;}
 .banner-listitem-menu .left{width: 536px;float:left;margin:0 25px 0 15px;}
 .banner-listitem-menu .left li{padding:18px 0 16px 0px;height: 39px;border:0;border-bottom:1px dashed #d9d9d9;}
 .banner-listitem-menu .left li a{float:left;color:#666;font-weight: 900;text-align: right;width: 88px;}
@@ -73,17 +80,27 @@
 
 
 /*wine*/
-#wine{height: 335px;padding-top: 28px;}
-#wine>a{width: 90px;height: 30px;font-size: 16px;color:#666;text-align: center;display: inline-block;line-height: 16px;}
+#wine{height: 335px;padding-top: 28px;z-index: 5;}
+#wine>a{width: 90px;height: 30px;font-size: 16px;color:#666;text-align: center;display: inline-block;line-height: 16px;z-index: 5;}
 #wine .wine-active{color:#e3102e;border-bottom: 2px solid #dd102e;background: url(../img/wine-act.jpg) no-repeat 40px 26px;}
-.wine-container{height: 290px;width: 1183px;border:1px solid #ededed;padding-top: 15px;padding-left: 15px;position: relative;overflow: hidden;}
+.wine-container{height: 290px;width: 1183px;border:1px solid #ededed;padding-top: 15px;padding-left: 15px;position: relative;overflow: hidden;z-index: 5;}
 /*白酒品牌*/
-.wine-spirit{position: absolute;width: 1183px;}
-.wine-spirit li{float:left;width: 180px;height: 80px;overflow: hidden;margin:0 17px 17px 0;}
-.wine-spirit li a{float:left;width: 180px;height: 80px;overflow: hidden;margin:0 17px 17px 0;position: relative;}
-.wine-spirit li a img{position:absolute;left:0;}
+.wine-spirit-wrap{width: 1200px;height: 307px;position: relative;top:-15px;left:-15px;}
+.wine-spirit{position: absolute;width: 1183px;z-index: 5;}
+.wine-spirit li{float:left;width: 180px;height: 80px;overflow: hidden;margin:0 17px 17px 0;z-index: 5;}
+.wine-spirit li a{float:left;width: 180px;height: 80px;overflow: hidden;margin:0 17px 17px 0;position: relative;z-index: 5;}
+.wine-spirit li a img{position:absolute;left:0;z-index: 5;}
 .wine-spirit li a:hover img{left:-100px;transition: 0.5s;}
+.wine-spirit1{left:15px;}
+.wine-spirit1,.wine-spirit2{top:15px;}
 .wine-spirit2{right:-1183px;}
+/*白酒的点击按钮*/
+.wine-container .wine-spirit-btn{z-index: 9;}
+.wine-container .wine-spirit-btn a{position: absolute;top:128px;width: 46px;height: 46px;display:block;background: url(../img/newIndexIcon-24.png) no-repeat;z-index: 9;}
+.wine-container .wine-spirit-btn .left{background-position: 0 -130px;left:8px;}
+.wine-container .wine-spirit-btn .right{background-position: -56px -130px;right:8px;}
+
+
 /*地方名酒*/
 .wine-local{display: none;}
 /*红洋酒品牌*/
@@ -96,20 +113,33 @@
 .hot-stroes-title span{width: 48px;display: inline-block;font-size:12px;color:#666;font-weight: 100;margin-left: 975px;background:url(../img/ico.png) no-repeat -135px -219px;}
 .hotstores-left{width: 212px;float:left;margin-top: 10px;border: 2px solid #f0f0f0;border-left: 0;}
 .hotstores-center{width: 780px;float:left;border-left: 2px solid #f0f0f0;border-top:2px solid #f0f0f0;margin-top: 10px;}
-.hotstores-center li{width: 128px;height: 80px;float:left;border-right: 2px solid #f0f0f0;border-bottom: 2px solid #f0f0f0;}
-.hotstores-center li a{float:left;padding: 15px 19px 20px;}
+.hotstores-center li{width: 128px;height: 80px;float:left;border-right: 2px solid #f0f0f0;border-bottom: 2px solid #f0f0f0;position: relative;}
+.hotstores-center li a{float:left;padding: 15px 19px 20px;position: absolute;}
 .hotstores-right img{width: 212px;height: 326px;}
 .hotstores-right{float:left;width: 212px;border: 2px solid #f0f0f0;margin-top: 10px;border-right: 0;}
 
 /*crazy-buy*/
 #crazy-buy{height: 297px;}
-.crazy-buy-list1{width: 200px;float:left;height: 297px;border-bottom: 1px solid #f0f0f0;}
+.tabwrap{width: 1000px;float:left;height: 26px;border-bottom: 1px solid #f0f0f0;height: 297px;}
+.crazy-buy-tab .tablist{text-align: center;height: 26px;padding-top: 19px;color:#666;border-bottom: 2px solid #f0f0f0;float:left;width: 200px;}
+.tabitem li{float:left;width: 200px;}
+.tabitem li img{margin:15px auto 0;height: 160px;}
+.tabitem li p{line-height: 19px;margin-top: 3px;color:#666;width: 160px;margin:0 auto;}
+.tabitem li .price{color:#999;}
+.tabitem li .price span{color:#e31939;}
+.tabitem{display: none;}
+.tabwrap .act{display: block;}
+.crazy-buy-tab .active{border-bottom: 2px solid #e22a40;background:url(../img/wine-act.jpg) no-repeat 96px 40px;display:block;}
+
+/* .crazy-buy-list1{width: 200px;float:left;height: 297px;border-bottom: 1px solid #f0f0f0;}
 .crazy-buy-list1 dt{text-align: center;height: 26px;padding-top: 19px;color:#666;border-bottom: 2px solid #f0f0f0;}
+.crazy-buy-list1 dd{display:none;float:left;}
 .crazy-buy-list1 dd img{margin:15px auto 0;height: 160px;}
 .crazy-buy-list1 dd p{line-height: 19px;margin-top: 3px;color:#666;width: 160px;margin:0 auto;}
 .crazy-buy-list1 dd .price{color:#999;}
 .crazy-buy-list1 dd .price span{color:#e31939;}
-.crazy-buy-list1 .active{border-bottom: 2px solid #e22a40;background:url(../img/wine-act.jpg) no-repeat 96px 40px;}
+#crazy-buy .active dt{border-bottom: 2px solid #e22a40;background:url(../img/wine-act.jpg) no-repeat 96px 40px;display:block;}
+#crazy-buy .active dd{display: block;} */
 .crazy-buy-list2{width: 210px;float:left;}
 .crazy-buy-list2 i{width: 17px;height: 18px;display: inline-block;float:left;background: url(../img/index.png) no-repeat 0 -125px;font-size: 0;}
 .crazy-buy-list2 dt{text-indent:11px;height: 26px;padding-top: 16px;height: 29px;color:#e22a40;border-bottom: 2px solid #e22a40;line-height: 18px;}
@@ -126,7 +156,7 @@
 .index-1f-piclist{padding: 36px 0 0 25px;height: 227px;}
 .index-1f-piclist a{width: 36px;height: 35px;float:left;margin-right: 10px;margin-bottom:10px;text-align: center;background: url(../img/index.png) no-repeat 0 -50px;color:#2f2f2f;padding: 24px 12px 0 11px;}
 .index-1f-piclist a:hover{background-position: -69px -50px;color:#fff;}
-.index-1f-middle-goods{width: 820px;border-top: 1px solid #8dd514;float:left;}
+.index-1f-middle-goods{width: 820px;border-top: 1px solid #8dd514;float:left;display: none;}
 .index-1f-middle-goods li{width: 160px;height: 258px;border-right: 1px solid #e7e7e7;border-bottom: 1px solid #e7e7e7;float:left;padding:20px 22px 0;position: relative;}
 .index-1f-middle-goods li a{display:block;width: 160px;height: 160px;}
 .index-1f-middle-goods li a img{width: 160px;height: 160px;}
@@ -144,6 +174,7 @@
 .index-1f-bottombtn{display: none;}
 .index-1f-bottombtn a{display: block;width: 30px;height: 40px;position: absolute;background:#333;opacity: 0.4;filter:alpha(opacity=40);}
 .index-1f-bottombtn .right{right: 0;}
+.index-1f-middle .active{display: block;}
 
 /*index-2f*/
 #index-2f,#index-3f,#index-4f,#index-5f,#index-6f,#index-7f,#index-8f{margin-top: 43px;}

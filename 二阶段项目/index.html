@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/index.css" />
 	<script src='js/jquery-1.12.4.min.js'></script>
 	<script src='js/index.js'></script>
+	<script src='js/jquery.lazyload.min.js'></script>
 </head>
 <body>
 	<!--header-->
@@ -30,7 +31,7 @@
 				</div>
 			</div>
 			<a class="header-switch" href="javascript:;">[切换区县]</a>
-			<p class='header-welcome'>欢迎光临本店！<a href="javascript:;">请登录</a><a href="javascript:;">免费注册</a></p>
+			<p class='header-welcome'>欢迎光临本店！<a href="html/login.html">请登录</a><a href="html/register.html">免费注册</a></p>
 			<div class="header-myinfo">我的信息<span></span>
 				<div class="myinfo-list">
 					<a href="javascript:;">已买到的宝贝</a>
@@ -38,7 +39,7 @@
 				</div>
 			</div>
 			<a class="header-myfav" href="javascript:;"><i></i>我关注的店铺</a>
-			<a class="header-shopcar" href="javascript:;"><i></i>购物车</a>
+			<a class="header-shopcar" href="html/shopcar.html"><i></i>购物车</a>
 			<div class="header-collect" href="javascript:;">收藏夹<i></i>
 				<div class="collectitem">
 					<a href="javascript:;">收藏的宝贝</a>
@@ -76,6 +77,28 @@
 		</div>
 	</div>
 	
+	<!--遮罩层-->
+	<div id="index-shadewrap">
+		<div id="index-shade"></div>
+		<div id="index-window">
+			<div class="index-windowtit">请选择您的收货地区<i>X</i></div>
+			<ul>
+				<li><a href="javascript:;">石家庄</a></li>
+				<li><a href="javascript:;">保定</a></li>
+				<li><a href="javascript:;">沧州</a></li>
+				<li><a href="javascript:;">承德</a></li>
+				<li><a href="javascript:;">邯郸</a></li>
+				<li><a href="javascript:;">衡水</a></li>
+				<li><a href="javascript:;">廊坊</a></li>
+				<li><a href="javascript:;">秦皇岛</a></li>
+				<li><a href="javascript:;">唐山</a></li>
+				<li><a href="javascript:;">邢台</a></li>
+				<li><a href="javascript:;">张家口</a></li>
+			</ul>
+		</div>
+	</div>
+
+
 	<!--top-->
 	<div id="top">
 		<h1 id='logo'><a href="index.html"><img src="img/logo_hd.jpg" alt="juhuimai" title='logo'></a></h1>
@@ -146,6 +169,7 @@
 					</div>
 					<input type="button" class="index-sub" value="立即登录">
 				</form>
+				<div class="cover"></div>
 				<div class="icon"></div>
 			</div>
 		</div>
@@ -155,6 +179,7 @@
 				<h6>在线销售顾问</h6>
 				<div class="o2otop"><img src="img/web_logo.png" alt="">在线客服</div>
 				<div class="o2obottom"><img src="img/qq1.gif" alt="">客服主管</div>
+				<div class="cover"></div>
 				<div class="icon"></div>
 			</div>
 		</div>
@@ -164,6 +189,7 @@
 			<div class="after">在线调查</div>
 			<div class="researchtest hide">
 				在线调查问卷
+				<div class="cover"></div>
 				<div class="icon"></div>
 			</div>
 		</div>
@@ -173,27 +199,52 @@
 			<span>0</span>
 			<div class="shopcaritem hide">
 				<a href="javascript:;">您的购物车里什么都没有哦，再去看看吧</a>
+				<div class="cover"></div>
 				<div class="icon"></div>
 			</div>
 		</div>
 		<div class="look">
-			<i></i>
-			关注
+			<div class="before">
+				<i></i>
+				关注
+			</div>
+			<div class="after after2">
+				关注店铺
+			</div>
 		</div>
 		<div class="collect">
-			<i></i>
-			收藏
+			<div class="before">
+				<i></i>
+				收藏
+			</div>
+			<div class="after after2">
+				收藏商品
+			</div>
 		</div>
 		<div class="code">
-			<i></i>
+			<div class="wrap">
+				<div class="before">
+					<i></i>
+				</div>
+				<div class="after after2">
+					官方微信
+				</div>
+			</div>
+			
 			<div class="codeitem hide">
 				<img src="img/weixin.png" alt="">
 				扫描二维码，码上有礼！
+				<div class="cover"></div>
 				<div class="icon icon2"></div>
 			</div>
 		</div>
 		<div class="totop">
-			<i></i>
+			<div class="before">
+				<i></i>
+			</div>
+			<div class="after after3">
+				回到顶部
+			</div>
 		</div>
 	</div>
 
@@ -211,19 +262,23 @@
 		
 		<div id="banner-suspend">
 			<!--banner的小方块控制-->
-			<div class="banner-square">
-				<div class="banner-squlist active"><a href="javascript:;"></a></div>
-				<div class="banner-squlist"><a href="javascript:;"></a></div>
-				<div class="banner-squlist"><a href="javascript:;"></a></div>
-				<div class="banner-squlist"><a href="javascript:;"></a></div>
-				<div class="banner-squlist"><a href="javascript:;"></a></div>
-				<div class="banner-squlist"><a href="javascript:;"></a></div>
-				<div class="banner-squlist"><a href="javascript:;"></a></div>
+			<div class="banner-squarewrap">
+				<div class="banner-square"></div>
+				<div class="banner-squlist active" style='left:590px;'><a href="javascript:;"></a></div>
+				<div class="banner-squlist" style='left:618px;'><a href="javascript:;"></a></div>
+				<div class="banner-squlist" style='left:646px;'><a href="javascript:;"></a></div>
+				<div class="banner-squlist" style='left:674px;'><a href="javascript:;"></a></div>
+				<div class="banner-squlist" style='left:702px;'><a href="javascript:;"></a></div>
+				<div class="banner-squlist" style='left:730px;'><a href="javascript:;"></a></div>
+				<div class="banner-squlist" style='left:758px;'><a href="javascript:;"></a></div>
 			</div>
 			<ul class="banner-list">
 				<li>
-					<span class="banner-listitem"><b></b>食品生鲜<i></i></span>
-					<p>保健食品 进口水果 ...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem"><b></b>食品生鲜<i></i></span>
+						<p>保健食品 进口水果 ...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li style='height:12px;'><a href="javascript:;">保健食品：</a></li>
@@ -244,8 +299,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem1"><b></b>服装服饰<i></i></span>
-					<p>女装馆 T恤 中长款半 ...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem1"><b></b>服装服饰<i></i></span>
+						<p>女装馆 T恤 中长款半 ...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li><a href="javascript:;">女装馆：</a><p><a href="javascript:;">连衣裙</a><a href="javascript:;">连体裤</a> <a href="javascript:;">棉麻T恤</a> <a href="javascript:;">时尚套装</a> <a href="javascript:;">复古旗袍</a> <a href="javascript:;">牛仔裤</a> <a href="javascript:;">短外套</a> <a href="javascript:;">羽绒服</a></p></li>
@@ -269,8 +327,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem2"><b></b>个护化妆<i></i></span>
-					<p>美容护肤 香水彩妆 面 ...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem2"><b></b>个护化妆<i></i></span>
+						<p>美容护肤 香水彩妆 面 ...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li style='height:12px;'><a href="javascript:;">美容护肤：</a></li>
@@ -291,8 +352,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem3"><b></b>手机数码<i></i></span>
-					<p>网卡 热卖手机 手机配件 ...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem3"><b></b>手机数码<i></i></span>
+						<p>网卡 热卖手机 手机配件 ...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li style='height:12px;'><a href="javascript:;">网卡：</a></li>
@@ -313,8 +377,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem4"><b></b>家用电器<i></i></span>
-					<p>大家电 大家电 生活电...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem4"><b></b>家用电器<i></i></span>
+						<p>大家电 大家电 生活电...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li style='height:12px;'><a href="javascript:;">大 家 电：</a></li>
@@ -335,8 +402,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem5"><b></b>家居日用<i></i></span>
-					<p>家纺 家具 厨具 灯具...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem5"><b></b>家居日用<i></i></span>
+						<p>家纺 家具 厨具 灯具...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li><a href="javascript:;">家纺：</a><p><a href="javascript:;">床品套件</a> <a href="javascript:;">被子</a> <a href="javascript:;">蚊帐</a> <a href="javascript:;">凉席</a> <a href="javascript:;">床单被罩</a> <a href="javascript:;">毛巾浴巾</a> <a href="javascript:;">床垫/床褥</a> <a href="javascript:;">窗帘/窗纱</a></p></li>
@@ -358,8 +428,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem6"><b></b>酒类饮料<i></i></span>
-					<p>酒水 冲调饮品 饮料饮...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem6"><b></b>酒类饮料<i></i></span>
+						<p>酒水 冲调饮品 饮料饮...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li><a href="javascript:;">酒水：</a><p><a href="javascript:;">白酒</a> <a href="javascript:;">啤酒</a> <a href="javascript:;">葡萄酒/果酒</a> <a href="javascript:;">黄酒/米酒</a> <a href="javascript:;">养生酒</a> <a href="javascript:;">预调酒</a></p></li>
@@ -378,8 +451,11 @@
 					</div>
 				</li>
 				<li>
-					<span class="banner-listitem banner-listitem7"><b></b>母婴用品<i></i></span>
-					<p>尿裤湿巾 玩具 婴儿尿...</p>
+					<div class="bannerlistleftside"></div>
+					<div class="changeopa">
+						<span class="banner-listitem banner-listitem7"><b></b>母婴用品<i></i></span>
+						<p>尿裤湿巾 玩具 婴儿尿...</p>
+					</div>
 					<div class="banner-listitem-menu">
 						<ul class="left">
 							<li style='height:12px;'><a href="javascript:;">尿裤湿巾：</a></li>
@@ -564,17 +640,17 @@
 	<div id="crazy-buy">
 		<div class="tabwrap">
 			<div class='crazy-buy-tab'>
-				<div class="tablist active">疯狂抢购</div>
+				<div class="tablist">疯狂抢购</div>
 				<div class="tablist">热销排行</div>
 				<div class="tablist">商城热卖</div>
 				<div class="tablist">商城推荐</div>
-				<div class="tablist">新品上市</div>
+				<div class="tablist active">新品上市</div>
 			</div>
-			<ul class="tabitem act">
-				<li>
+			<ul class="tabitem">
+				<li><a href="html/detail.html">
 					<img src="img/34_thumb_G_1452797720522.jpg" alt="">
 					<p>2016春秋季新款韩版胖MM大码女装宽松中长款假...</p>
-					<p class="price">商城价：<span>78.0</span></p>
+					<p class="price">商城价：<span>78.0</span></p></a>
 				</li>
 			</ul>
 			<ul class="tabitem">
@@ -643,7 +719,7 @@
 					<p class="price">商城价：<span>2699.0</span></p>
 				</li>
 			</ul>
-			<ul class="tabitem">
+			<ul class="tabitem act">
 				<li>
 					<img src="img/6f-index-mid(1).jpg" alt="">
 					<p>优雅100 经典设计款全棉斜纹印花四件套</p>
@@ -2603,7 +2679,7 @@
 		<!--friend link-->
 		<div id="friendlink">
 			<p>友情链接： <a href="javascript:;">邢台亿搜人才网</a> | <a href="javascript:;">邯郸中小企业网</a> | <a href="javascript:;">亿搜人才网</a> | <a href="javascript:;">众贤服务网</a> | <a href="javascript:;">快递查询</a></p>
-			<p><a href="javascript:;">关于我们</a> | <a href="javascript:;">管理团队</a> | <a href="javascript:;">商家入驻</a> | <a href="javascript:;">媒体报道</a> | <a href="javascript:;">站点地图</a> | <a href="javascript:;">招贤纳士</a> | <a href="javascript:;">帮助中心</a> ICP备案证书号:冀ICP备14019346号-1</p>
+			<p><a href="javascript:;">关于我们</a> | <a href="javascript:;">管理团队</a> | <a href="javascript:;">商家入驻</a> | <a href="javascript:;">媒体报道</a> | <a href="javascript:;">站点地图</a> | <a href="javascript:;">招贤纳士</a> | <a href="javascript:;">帮助中心</a> ICP备案证书号:<a href="javascript:;">冀ICP备14019346号-1</a></p>
 			<p><a href="javascript:;">© 2005-2016 聚惠买商城 版权所有，并保留所有权利。</a> <a href="javascript:;">邯郸市开发区世纪大街2号才智港</a> <a href="javascript:;">Tel: 400-0310-707</a> <a href="javascript:;">E-mail: juhuimai@126.com</a></p>
 		</div>
 	</div>

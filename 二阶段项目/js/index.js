@@ -1,7 +1,15 @@
 
 
+//图片延时
+/*$(function(){
+	$('img').lazyload({effect: "fadeIn"});
+})*/
 
-
+$(function(){                                           //遮罩层
+	$('.index-windowtit i').on('click',function(){
+		$('#index-shadewrap').css('display','none');
+	})
+})
 
 //首页banner图切换
 $(function(){
@@ -12,26 +20,26 @@ $(function(){
 	timer=setInterval(function(){
 		$index=$('#banner>.active').index();                //获取下标
 		$nextindex=$index+1;
-		$('.banner-squlist').removeClass('active');
-		$('.banner-squlist').eq($nextindex).addClass('active');
 		if($index>$('#banner>li').size()-1){$index=0;};       //边界判断
 		if($nextindex>$('#banner>li').size()-1){$nextindex=0;};
+		$('.banner-squlist').removeClass('active');
+		$('.banner-squlist').eq($nextindex).addClass('active');
 		$('#banner>li').eq($index).fadeOut(500);
 		$('#banner>li').eq($nextindex).fadeIn(500);
 		$('#banner>li').removeClass('active');
 		$('#banner>li').eq($nextindex).addClass('active');
 	},4000)
-	$('.banner-square').on('mouseenter',function(){
+	$('.banner-squarewrap').on('mouseenter',function(){
 		clearInterval(timer);
 	})
-	$('.banner-square').on('mouseleave',function(){
+	$('.banner-squarewrap').on('mouseleave',function(){
 		timer=setInterval(function(){
-			$index=$('#banner>.active').index();                //获取下标
+			$index=$sindex;                //获取下标
 			$nextindex=$index+1;
-			$('.banner-squlist').removeClass('active');
-			$('.banner-squlist').eq($nextindex).addClass('active');
 			if($index>$('#banner>li').size()-1){$index=0;};       //边界判断
 			if($nextindex>$('#banner>li').size()-1){$nextindex=0;};
+			$('.banner-squlist').removeClass('active');
+			$('.banner-squlist').eq($nextindex).addClass('active');
 			$('#banner>li').eq($index).fadeOut(500);
 			$('#banner>li').eq($nextindex).fadeIn(500);
 			$('#banner>li').removeClass('active');
@@ -39,11 +47,17 @@ $(function(){
 		},4000)
 	}) 
 	$('.banner-squlist').on('click',function(){               //点击方块查看对应banner
-		$('.banner-squlist').removeClass('active'); 
+		$('.banner-squlist').removeClass('active');
 		$(this).addClass('active');
-		$index=$(this).index();
+		$sindex=$(this).index()-1;
 		$('#banner>li').fadeOut(500);
-		$('#banner>li').eq($index).fadeIn(500);
+		$('#banner>li').eq($sindex).fadeIn(500);
+	})
+	
+	$('.navallwrap').hover(function(){
+		$('.bannerlisthide').css('display','block');              //banner上的导航
+	},function(){
+		$('.bannerlisthide').css('display','none');
 	})
 })
 
@@ -57,11 +71,12 @@ function downmenu(obj,child){
 }
 $(function(){
 	$('.banner-list>li').hover(function(){                //banner的菜单
-		$(this).css({'background':'#e31939','color':'#fff'});
+		//$('.banner-list>li').removeClass('active');
+		$(this).addClass('active');
 		$(this).find('div').css('display','block')
 	},function(){
-		$(this).css({'background':'','color':'','borderLeft':''});
-		$(this).find('div').css('display','none');
+		$(this).removeClass('active');
+		$(this).find('div.banner-listitem-menu,div.bannerlistleftside').css('display','none');
 	})
 	/*$('.header-city').hover(function(){                    //顶部城市下拉菜单
 		$('.citylist').css('display','block');
@@ -89,9 +104,16 @@ $(function(){
 	downmenu($('.header-mobile'),$('.app'));
 	downmenu($('.header-seller'),$('.sellerhelp'));            //顶部帮助中心下拉
 	downmenu($('.header-nav'),$('.navmenu'));
-
 })
 
+//酒类的划过运动
+$(function(){
+	$('.wine-spirit a').hover(function(){
+		$(this).find('img').stop(true,true).animate({left:-100},500);
+	},function(){
+		$(this).find('img').stop(true,true).animate({left:0},500);
+	})
+})
 
 //楼层下面的品牌点击
 function floorad(objul,obja,objli,objbtn,objbtnlist){
@@ -135,10 +157,35 @@ $(function(){
 		$('#floortab span').removeClass('act');
 		$(this).find('a').addClass('active');
 		$(this).find('span').addClass('act');
-		$(window).scrollTop($('.floorlist').eq($(this).index()).offset().top)
+		$('html,body').animate({scrollTop:$('.floorlist').eq($(this).index()).offset().top},300);
 	})
 	$(window).on('scroll',function(){                           //窗口滚动时事件
-
+		$scrollh=$(this).scrollTop();
+		if($scrollh>1600){           //到达一定高度 显示楼层导航
+			$('#floortab').fadeIn();
+		}else{
+			$('#floortab').fadeOut();
+		}
+		if($scrollh>200){                           //滚动到一定高度出现返回顶部
+			$('.totop').animate({'bottom':0},300);
+		}else{
+			$('.totop').animate({'bottom':-45},300);
+		}
+		//循环每一个楼层 然后找到最先满足条件的那个楼层
+		$('.floorlist').each(function(i){
+			//console.log(i);
+			var $height=$('.floorlist').eq(i).offset().top+$(this).height()/2; //楼层与浏览器的高度
+			if($scrollh<$height){
+				$('#floortab a').removeClass('active');
+				$('#floortab span').removeClass('act');
+				$('#floortab li').eq(i).find('a').addClass('active');
+				$('#floortab li').eq(i).find('span').addClass('act');
+				return false;
+			}                             
+		})
+	})
+	$('.totop').on('click',function(){
+		$('html,body').animate({scrollTop:0},300);                    //页面回到顶部
 	})
 })
 
@@ -146,12 +193,17 @@ $(function(){
 $(function(){
 	$('#index-fixed>div').hover(function(){
 		$(this).children().css('display','block');
-		$(this).find($('.before')).stop(true,true).animate({'top':-38},200);
-		$(this).find($('.after')).stop(true,true).animate({'top':0},200);
+		if($(this).find($('.before'))){
+			$top=$(this).find($('.after')).position().top;
+			$(this).find($('.before')).stop(true,true).animate({'top':-$top},200);
+			$(this).find($('.after')).stop(true,true).animate({'top':0},200);
+		}
 	},function(){
 		$(this).find($('.hide')).css('display','none');
-		$(this).find($('.before')).stop(true,true).animate({'top':0},200);
-		$(this).find($('.after')).stop(true,true).animate({'top':38},200);
+		if($(this).find($('.before'))){
+			$(this).find($('.before')).stop(true,true).animate({'top':0},200);
+			$(this).find($('.after')).stop(true,true).animate({'top':$top},200);
+		}
 	})
 })
 

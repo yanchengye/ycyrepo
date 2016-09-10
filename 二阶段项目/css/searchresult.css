@@ -1,0 +1,10 @@
+#searchcontent{width: 1210px;margin:0 auto;}
+
+/*搜索内容显示区*/
+#searchcontent{min-height: 492px;padding-bottom: 55px;height:auto!important;height:492px;}
+#searchcontent:after{content:'.';display: block;height:0;clear:both;overflow: hidden;visibility: hidden;}
+.search-tree{height: 38px;line-height: 38px;}
+.search-tree a:hover{text-decoration: underline;color:#E4393C;}
+.search-tree i{width: 12px;height: 12px;float:left;background: url(../img/user_header.png) no-repeat -427px -208px;margin:13px 5px 0 0;}
+.searchleftside{width: 220px;float:left;}
+.searchrightside{width: 990px;float:left;}

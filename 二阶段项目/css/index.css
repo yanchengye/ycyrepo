@@ -34,10 +34,11 @@
 .banner-squarewrap .active a{background: #ff3300;}
 .banner-squarewrap a{width: 24px;height: 6px;display: block;}
 /*banner下的方块结束*/
-.banner-list .active .changeopa{opacity: 0.7;filter:alpha(opacity=70);color:#fff;background:url(../img/nav.png) no-repeat right top;}
+/*banner里的导航菜单*/
+.banner-list .active .changeopa{opacity: 0.7;filter:alpha(opacity=70);color:#fff;background:url(../img/nav.png) no-repeat right top;width: 208px;}
 .banner-list{position: absolute;left:0;top:0;width: 208px;height: 513px;display: block;background: rgba(255,255,255,0.7);border: 1px solid #e7e7e7;border-top:0;z-index: 9;}
-.banner-list>li{border-top: 1px solid #e7e7e7;width: 208px;height: 62px;position: relative;z-index: 9;margin:0 auto;cursor:pointer;}
-.banner-list li .changeopa{position: absolute;left:0;top:0;padding:15px 0 17px 0;width: 100%;color:#666;}
+.banner-list>li{border-top: 1px solid #e7e7e7;width: 178px;height: 61px;position: relative;z-index: 9;margin:0 auto;cursor:pointer;}
+.banner-list li .changeopa{position: absolute;left:-15px;top:0;padding:15px 0 17px 0;width: 208px;height: 30px;width: 100%;color:#666;}
 .banner-listitem{margin-bottom: 6px;display: block;position: relative;text-indent:42px;width: 180px;}
 .banner-listitem li{padding:15px 0 17px 0;width: auto;height: auto;}
 .banner-listitem b{display: block;width: 18px;height: 17px;position: absolute;left: 5px;top: 0;background: url(../img/ico.png) no-repeat -5px -3px;}
@@ -80,7 +81,7 @@
 .banner-blog2 li{margin-top: 16px;width: 190px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .banner-blog2 li i{display: inline-block;font-size: 0;width: 2px;height: 2px;background: url(../img/home_bg.png) no-repeat -70px -40px;margin: 5px 6px 0 10px;}
 /*banner里的菜单*/
-.banner-listitem-menu{position: absolute;left:208px;top:0;width: 787px;background: #fff;border:1px solid #de1838;z-index: 90;display:none;height:150px;min-height: 150px;height:auto!important;padding-bottom: 10px;}
+.banner-listitem-menu{position: absolute;left:193px;top:0;width: 787px;background: #fff;border:1px solid #de1838;z-index: 90;display:none;height:150px;min-height: 150px;height:auto!important;padding-bottom: 10px;}
 .banner-listitem-menu:after{content:'.';display: block;height:0;clear:both;overflow: hidden;visibility: hidden;}
 .banner-listitem-menu .left{width: 536px;float:left;margin:0 25px 0 15px;}
 .banner-listitem-menu .left li{padding:18px 0 16px 0px;height: 39px;border:0;border-bottom:1px dashed #d9d9d9;}

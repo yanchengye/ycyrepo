@@ -20,13 +20,13 @@
 .treelist li i{width: 12px;display:block;height: 10px;background:url(../img/user_header.png) no-repeat -427px -209px;float:left;margin-right:5px;}
 .zoomleft{width: 425px;float:left;}
 /*最大的图*/
-.superbig{width: 580px;height: 376px;background: #fff;border:1px solid #999;position: absolute;left:392px;top:2px;overflow: hidden;z-index: 9;display:none;}
+.superbig{width: 580px;height: 376px;background: #fff;border:1px solid #999;position: absolute;left:392px;top:2px;overflow: hidden;z-index: 8;display:none;}
 .superbig img{position: absolute;left:0:top:0;}
 /*滑动的块*/
 .zoomcover{width: 272px;height: 176px;position: absolute;left:0px;top:0px;background:#fff;border:1px solid #aaa;opacity: 0.5;filter:alpha(opacity=50);display:none;cursor: move;}
 /*最大的图over*/
 .bigpic{border:1px solid #ddd;padding:10px;width: 380px;height: 380px;}
-.bigpicwrap{width: 380px;position: relative;cursor: pointer;height: 380px;z-index: 9;}
+.bigpicwrap{width: 380px;position: relative;cursor: pointer;height: 380px;z-index: 8;}
 .bigpicitem{width: 380px;height: 380px;}
 .smallpic{width: 400px;height: 52px;margin-top: 10px;margin-bottom: 15px;}
 .smallpic .smallbtn-left{width: 16px;height: 50px;float:left;}

@@ -97,9 +97,9 @@ a { color:#666; text-decoration:none; }
 .menurighttit{color:#030303;}
 .menurightlist a:hover{color:#030303;}
 /*banner上的导航*/
-.navallwrap{position: relative;height: 37px;float:left;}
+.navallwrap{position: relative;height: 37px;float:left;z-index: 9;}
 .navallwrap .bannerlisthide{position: absolute;left:0;top:37px;background: #fff;display: none;}
-.bannerlistleftside{width: 5px;height: 66px;position: absolute;left:-5px;top:0;display: none;background:url(../img/nav.png) no-repeat left top;opacity: 0.7;filter:alpha(opacity=70);}
+.bannerlistleftside{width: 5px;height: 66px;position: absolute;left:-20px;top:0;display: none;background:url(../img/nav.png) no-repeat left top;opacity: 0.7;filter:alpha(opacity=70);}
 /*banner上的导航结束*/
 
 /*top*/

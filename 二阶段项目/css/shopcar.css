@@ -29,13 +29,13 @@
 .shopcarttitlist4{width: 148px;}
 .shopcarttitlist5{width: 148px;}
 .shopcarttitlist6{width: 99px;}
-.shopcartgoods{border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;height: 145px;background:#fff;}
+.shopcartgoods{border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;min-height: 145px;height:auto!important;height:145px;background:#fff;}
 .shopcartstroe{color:#ff0000;line-height: 33px;height: 33px;background: #fafafa;text-indent: 19px;}
 .shopcartgoodsinfo{width: 990px;height: 112px;}
-.shopcartgoodsinfo li{float:left;height: 100%;}
+.shopcartgoodswrap .shopcartgoodsinfo li{float:left;height: 100%;}
 .shopcartgoodsinfo1{width: 5%;}
 .shopcartgoodsinfo2{width: 40%;}
-.shopcartgoodsinfo3{width: 15%;}
+.shopcartgoodsinfo3{width: 15%;text-align: center;line-height:112px;}
 .shopcartgoodsinfo4{width: 15%;}
 .shopcartgoodsinfo5{width: 15%;}
 .shopcartgoodsinfo6{width: 10%;}

@@ -49,4 +49,21 @@ $(function(){
 			$btn=true;
 		}
 	})
+
+	$('.top-search-txt').on('keyup',function(){             //搜索热词提供
+		$v=$('.top-search-txt').val();
+		$.getJSON('http://www.yintai.com/ajaxpage/autosearch.aspx?keyword='+$v+'&callback=?',function(data){
+			//console.log(data);
+			$('.hotword').css('display','block');
+			$('.hotword ul').html('');
+			$.each(data,function(i){
+				$li=$('<li>');
+				$li.text(data[i].keyword);
+				$('.hotword ul').append($li);
+			})
+		})
+	})
+	$('.top-search-txt').on('blur',function(){
+		$('.hotword').css('display','none');
+	})
 })

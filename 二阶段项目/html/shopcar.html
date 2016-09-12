@@ -10,6 +10,7 @@
 	<script src='../js/jquery-1.12.4.min.js'></script>
 	<script src='../js/index.js'></script>
 	<script src='../js/jquery.cookie.js'></script>
+	<script src='../js/jquery.lazyload.min.js'></script>
 </head>
 <body>
 	
@@ -274,13 +275,9 @@
 		<div class="shopcar">
 			<i></i>
 			<p>购物车</p>
-			<span>0</span>
-			<div class="shopcaritem hide">
-				<!-- <a href="javascript:;">您的购物车里什么都没有哦，再去看看吧</a> -->
-				<div class="isgoods">
-					<div>共<span>0</span>件宝贝</div>
-					<a href="javascript:;">去购物车结算</a>
-				</div>
+			<span class="totalnum">0</span>
+			<div class="shopcaritem hide shopcartitem">
+				<!--<a class="thisnone" href="javascript:;">您的购物车里什么都没有哦，再去看看吧</a>-->
 				<ul>
 				</ul>
 				<div class="cover"></div>

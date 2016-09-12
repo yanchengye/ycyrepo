@@ -111,9 +111,13 @@ a { color:#666; text-decoration:none; }
 .top-search-tabcontainer a:hover{background: #f9e6e6;color:#c60000;}
 .top-search-tab{width: 50px;height: 25px;color:#666;text-align: center;line-height: 25px;display: inline-block;}
 .top-search-active{background: #e31939;color:#fff;}
-.top-search-txt{width: 442px;height: 32px;border:3px solid #e31939;padding-left: 5px;float: left;outline: none;}
+.top-search-txt{width: 442px;height: 32px;border:3px solid #e31939;padding-left: 5px;float: left;outline: none;line-height: 32px;}
 .top-search-btn{width: 86px;height: 38px;background: #e31939;border: 0;float:left;padding:0;color:#fff;font-size:16px;outline: none;}
-.top-search-txtcontainer{width: 540px;height: 40px;}
+.top-search-txtcontainer{width: 540px;height: 40px;position: relative;z-index: 8;;}
+/*搜索热词*/
+.hotword{width: 450px;position: absolute;left:0;top:38px;background: #fff;border:1px solid #ddd;display: none;}
+.hotword ul{padding-left: 5px;}
+.hotword ul li{line-height: 24px;color:#666;}
 .top-search-tips{padding-top: 9px;}
 .top-search-tips li{float:left;}
 .top-search-tips .active{margin:0 12px 0 16px;}

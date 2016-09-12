@@ -7,6 +7,8 @@
 	<link rel="stylesheet" href="../css/main.css">
 	<script src='../js/jquery-1.12.4.min.js'></script>
 	<script src='../js/login.js'></script>
+	<script src='../js/jquery.validate.min.js'></script>
+	<script src='../js/messages_zh.js'></script>
 </head>
 <body>
 	<!--头部-->
@@ -42,48 +44,55 @@
 				<p>已有账号！<a href="login.html">登录</a></p>
 			</h3>
 			<div class="register-container">
+				<form action="" id='registerfromphone' name='registerfromphone' method="get">
 				<div class="phone-email active">
 					<div class="txt">
 						<i></i>
-						<input type="text" placeholder="手机">
+						<input id='phonenumber' name="phonenumber" type="bumber" placeholder="手机">
+						<div class="error">
+							
+						</div>
 					</div>
 					<div class="pass">
 						<i></i>
-						<input type="password" placeholder="密码">
-						<span class="passstrength color1">弱</span>
-						<span class="passstrength color2">中</span>
-						<span class="passstrength color3">强</span>
+						<input type="password" name="registerpass" id='registerpass' placeholder="密码">
+						<span class="passstrength">弱</span>
+						<span class="passstrength">中</span>
+						<span class="passstrength">强</span>
 					</div>
 					<div class="pass passagain">
 						<i></i>
-						<input type="password" placeholder="确认密码">
+						<input type="password" class="fortrue" name='fortrue' placeholder="确认密码">
 					</div>
 					<div class="captcha">
 						<i></i>
 						<input type="text" placeholder="手机验证码">
-						<input type="button" value="获取手机验证码">
+						<input type="button" class="clicktosms" value="获取手机验证码">
+						<div class="shortmeassage"></div>
 					</div>
 					<div class="respect">
-						<input type="checkbox" checked="checked">
-						<span>我已看过并接受《<a href="javascript:;">用户协议</a>》</span>
+						<input id='iagree' type="checkbox" checked="checked">
+						<label for="iagree"><span>我已看过并接受《<a href="javascript:;">用户协议</a>》</span></label>
 					</div>
-					<input type="button" class="sub" value="立即注册">
+					<input type="submit" class="sub" value="立即注册">
 				</div>
+				</form>
 				<div class="phone-email">
+					<form action="" id="registerfromemail" name='registerfromemail'>
 					<div class="txt">
 						<i></i>
-						<input type="text" placeholder="email">
+						<input type="email" id="emailurl" name="emailurl" placeholder="email">
 					</div>
 					<div class="pass">
 						<i></i>
-						<input type="password" placeholder="密码">
-						<span class="passstrength color1">弱</span>
-						<span class="passstrength color2">中</span>
-						<span class="passstrength color3">强</span>
+						<input type="password" name='registerfromemailpass' id="registerfromemailpass" placeholder="密码">
+						<span class="passstrength">弱</span>
+						<span class="passstrength">中</span>
+						<span class="passstrength">强</span>
 					</div>
 					<div class="pass passagain">
 						<i></i>
-						<input type="password" placeholder="确认密码">
+						<input type="password" id='isfortrue' name='isfortrue' placeholder="确认密码">
 					</div>
 					<div class="captcha">
 						<i></i>
@@ -91,11 +100,12 @@
 						<input type="button" value="获取邮箱验证码">
 					</div>
 					<div class="respect">
-						<input type="checkbox" checked="checked">
-						<span>我已看过并接受《<a href="javascript:;">用户协议</a>》</span>
+						<input id='ido' type="checkbox" checked="checked">
+						<label for="ido"><span>我已看过并接受《<a href="javascript:;">用户协议</a>》</span></label>
 					</div>
-					<input type="button" class="sub" value="立即注册">
+					<input type="submit" class="sub" value="立即注册">
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

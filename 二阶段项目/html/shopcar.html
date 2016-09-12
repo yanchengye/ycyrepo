@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../css/login.css" />
 	<script src='../js/jquery-1.12.4.min.js'></script>
 	<script src='../js/index.js'></script>
+	<script src='../js/jquery.cookie.js'></script>
 </head>
 <body>
 	
@@ -108,6 +109,7 @@
 				</div>
 				<div class="shopcartgoods">
 					<div class="shopcartstroe">店铺：L&L</div>
+					<!-- <div class="shopcartgoodswrap">
 					<div class="shopcartgoodsinfo">
 						<li class="shopcartgoodsinfo1">
 							<input type="checkbox" />
@@ -126,7 +128,7 @@
 						<li class="shopcartgoodsinfo4">78.00</li>
 						<li class="shopcartgoodsinfo5">78.00</li>
 						<li class="shopcartgoodsinfo6"><a href="javascript:;">删除</a></li>
-					</div>
+					</div></div> -->
 				</div>
 				<div class="pay">
 					<a href="javascript:;" class="continue">继续购物</a>
@@ -274,7 +276,13 @@
 			<p>购物车</p>
 			<span>0</span>
 			<div class="shopcaritem hide">
-				<a href="javascript:;">您的购物车里什么都没有哦，再去看看吧</a>
+				<!-- <a href="javascript:;">您的购物车里什么都没有哦，再去看看吧</a> -->
+				<div class="isgoods">
+					<div>共<span>0</span>件宝贝</div>
+					<a href="javascript:;">去购物车结算</a>
+				</div>
+				<ul>
+				</ul>
 				<div class="cover"></div>
 				<div class="icon"></div>
 			</div>

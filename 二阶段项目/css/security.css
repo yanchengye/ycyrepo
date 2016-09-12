@@ -25,7 +25,7 @@
 .quit{float:left;margin-left: 20px;}
 .quit i{width: 14px;height: 14px;float:left;background:url(../img/user_center.png) no-repeat 0px -25px;margin-right: 6px;}
 .main .username{margin-top: 16px;color:#ed5b5b;width: 190px;padding-left: 20px;}
-.sclnav{height: 814px;background:#fbfbfb;}
+.sclnav{height: 814px;background:#fbfbfb;overflow: hidden;}
 .vipcenter,.tradecenter,.servicecenter{padding-left: 30px;}
 .vipcenter .tit,.tradecenter .tit,.servicecenter .tit{font-size: 14px;line-height: 14px;color:#333;margin-top: 13px;margin-bottom: 15px;height: 14px;cursor: auto;}
 .sclnav .tit:hover{background: #fbfbfb;color:#333;}

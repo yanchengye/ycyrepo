@@ -193,16 +193,22 @@ $(function(){
 $(function(){
 	$('#index-fixed>div').hover(function(){
 		$(this).children().css('display','block');
-		if($(this).find($('.before'))){
+		if($(this).children().hasClass('before')){
 			$top=$(this).find($('.after')).position().top;
-			$(this).find($('.before')).stop(true,true).animate({'top':-$top},200);
-			$(this).find($('.after')).stop(true,true).animate({'top':0},200);
+			if($top){
+				$(this).find($('.before')).stop(true,true).animate({'top':-$top},200);
+				$(this).find($('.after')).stop(true,true).animate({'top':0},200);
+			}
+			
 		}
 	},function(){
 		$(this).find($('.hide')).css('display','none');
-		if($(this).find($('.before'))){
-			$(this).find($('.before')).stop(true,true).animate({'top':0},200);
-			$(this).find($('.after')).stop(true,true).animate({'top':$top},200);
+		if($(this).children().hasClass('before')){
+			if($top){
+				$(this).find($('.before')).stop(true,true).animate({'top':0},200);
+				$(this).find($('.after')).stop(true,true).animate({'top':$top},200);
+			}
+			
 		}
 	})
 })
@@ -307,4 +313,115 @@ $(function(){                                                            //楼�
 	floorchoose($('#index-6f .tab a'),$('#index-6f .index-1f-middle-goods'));
 	floorchoose($('#index-7f .tab a'),$('#index-7f .index-1f-middle-goods'));
 	floorchoose($('#index-8f .tab a'),$('#index-8f .index-1f-middle-goods'));
+})
+
+$(function(){                                        //购物车
+	$('.buy').on('click',function(){
+		write( $(this).prev().prev().prev().text(),$(this).prev().prev().prev().prev().find('img').attr('src'),$(this).prev().text());
+		$.cookie('shopcartgoods',JSON.stringify(write( $(this).prev().prev().prev().text(),$(this).prev().prev().prev().prev().find('img').attr('src'),$(this).prev().text())),{expires:7,path:'/'});     //写入cookie
+		var $num=0,
+			$aGood=JSON.parse($.cookie('shopcartgoods'));
+		$.each($aGood,function(i){
+			$num+=$aGood[i].num;
+			var $img=$('img'),
+				$h4=$('h4'),
+				$span=$('span'),
+				$a=$('a'),
+				$i=$('i'),
+				$li=$('li'),
+				$str='<li><a href="javascript:;"><img src="'+$aGood[i].img+'" alt=""><h4>'+$aGood[i].goods+'</h4><span>'+$aGood[i].pri+'<strong>X</strong>'+$aGood[i].num+'</span></a><i>X</i></li>';
+				$('.shopcaritem ul').html($str);
+			})
+		$('.shopcar>span').text($num);
+	})
+	/*console.log(JSON.parse($.cookie('shopcartgoods')));
+	if($.cookie('shopcartgoods')){
+		var $aGood=JSON.parse($.cookie('shopcartgoods')),
+			$str='',
+			$shopcarstr='';
+		console.log($aGood);	
+		$.each($aGood,function(i){
+			/*var $img=$('img'),
+				$h4=$('h4'),
+				$span=$('span'),
+				$a=$('a'),
+				$i=$('i'),
+				$li=$('li');*/
+				/*$str+='<li><a href="javascript:;"><img src="'+$aGood[i].img+'" alt=""><h4>'+$aGood[i].goods+'</h4><span>'+$aGood[i].pri+'<strong>X</strong>'+$aGood[i].num+'</span></a><i>X</i></li>';
+				$shopcarstr='<div class="shopcartgoodsinfo"><li class="shopcartgoodsinfo1"><input type="checkbox" /></li><li class="shopcartgoodsinfo2"><dl><dt><a href="javascript:;"><img src="../'+$aGood[i].img+'" alt=""></a></dt><dd><p><a href="javascript:;">'+$aGood[i].goods+'</a></p><span>尺码:M</span><span>颜色:蓝色</span></dd></dl></li><li class="shopcartgoodsinfo3"></li><li class="shopcartgoodsinfo4">'+$aGood[i].pri+'</li><li class="shopcartgoodsinfo5">'+$aGood[i].pri*$aGood[i].num+'</li><li class="shopcartgoodsinfo6"><a href="javascript:;">删除</a></li></div>';
+				$div=$('<div>');
+				$div.attr('class','shopcartgoodswrap');
+				$div.html($shopcarstr);
+				$('.shopcartgoods').append($div);
+				console.log($div);
+		})
+		$('.shopcaritem ul').html($str);*/
+		$('.shopcaritem ul li i').on('click',function(){
+			$(this).parent().css('display','none');
+			$.cookie('shopcartgoods',{expires:-1});
+		})
+		/*$('.shopcartgoodswrap').html($shopcarstr);*/
+	
+	function write(sg,si,sp){
+		// 存储之前判断一下是否存储过该商品
+		var sGoods = $.cookie('shopcartgoods');
+		if(typeof sGoods === 'undefined') {
+			var oGoods = {
+				goods: sg,
+				img: si,
+				num: 1,
+				pri: sp
+			};
+			// 存储所有商品
+			var aGoods = [];
+			aGoods.push(oGoods);
+		} else {
+			var aGoods  = JSON.parse(sGoods),
+				isFirst = true; // 默认它是第一次添加
+			for(var i =0; i < aGoods.length; i++) {
+				if(aGoods[i].goods === $(this).prev().prev().prev().text()){
+					aGoods[i].num++;                     //不是的话只加数量
+					isFirst = false;
+				}
+			}
+			// 判断是否为第一次添加
+			if(isFirst) {
+				var oGoods = {
+					goods: sg,
+					img: si,
+					num: 1,
+					pri: sp
+				};
+				aGoods.push(oGoods);
+			}
+		}
+		return aGoods;
+	}
+
+	$('.goodsgroom .buy').on('click',function(){
+		write($(this).prev().prev().prev().find('a').text(),$(this).prev().prev().prev().prev().find('img').attr('src'),$(this).prev().text());
+		$.cookie('shopcartgoods',JSON.stringify(write($(this).prev().prev().prev().find('a').text(),$(this).prev().prev().prev().prev().find('img').attr('src'),$(this).prev().text())),{expires:7,path:'/'});
+		var $num=0,
+			$aGood=JSON.parse($.cookie('shopcartgoods'));
+		$.each($aGood,function(i){
+			$num+=$aGood[i].num;
+			var $img=$('img'),
+				$h4=$('h4'),
+				$span=$('span'),
+				$a=$('a'),
+				$i=$('i'),
+				$li=$('li'),
+				$str='<li><a href="javascript:;"><img src="'+$aGood[i].img+'" alt=""><h4>'+$aGood[i].goods+'</h4><span>'+$aGood[i].pri+'<strong>X</strong>'+$aGood[i].num+'</span></a><i>X</i></li>';
+				$('.shopcaritem ul').html($str);
+			})
+		$('.shopcar>span').text($num);
+	})
+
+
+
+
+
+
+
+
 })

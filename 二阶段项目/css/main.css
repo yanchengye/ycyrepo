@@ -28,7 +28,7 @@ a { color:#666; text-decoration:none; }
 .header-welcome{margin-left: 55px;float:left;margin-top: 10px;line-height: 12px;}
 .header-welcome a{margin-left:12px;}
 .header-welcome a:hover{text-decoration: underline;color:#e31939;}
-.header-myinfo{float:left;margin-left: 260px;line-height: 32px;width: 74px;text-indent: 10px;height:32px;position: relative;z-index: 2;cursor:pointer;}
+.header-myinfo{float:left;margin-left: 260px;line-height: 32px;width: 74px;text-indent: 10px;height:32px;position: relative;z-index: 8;cursor:pointer;}
 .header-myinfo span{width: 7px;height: 4px;background: url(../img/site-bg.png) no-repeat 0 -4px;display:block;position: absolute;top:14px;right:4px;font-size: 0;}
 .header-myinfo:hover{text-decoration: underline;color:#e31939;background: #fff;border-left:1px solid #eee;border-right: 1px solid #eee;border-bottom: 1px solid #fff;width: 72px;}
 .header-myinfo:hover span{background: #fff url(../img/site-bg.png) no-repeat 0 -14px;}
@@ -97,7 +97,7 @@ a { color:#666; text-decoration:none; }
 .menurighttit{color:#030303;}
 .menurightlist a:hover{color:#030303;}
 /*banner上的导航*/
-.navallwrap{position: relative;height: 37px;float:left;z-index: 9;}
+.navallwrap{position: relative;height: 37px;float:left;z-index: 8;}
 .navallwrap .bannerlisthide{position: absolute;left:0;top:37px;background: #fff;display: none;}
 .bannerlistleftside{width: 5px;height: 66px;position: absolute;left:-20px;top:0;display: none;background:url(../img/nav.png) no-repeat left top;opacity: 0.7;filter:alpha(opacity=70);}
 /*banner上的导航结束*/
@@ -113,7 +113,7 @@ a { color:#666; text-decoration:none; }
 .top-search-active{background: #e31939;color:#fff;}
 .top-search-txt{width: 442px;height: 32px;border:3px solid #e31939;padding-left: 5px;float: left;outline: none;line-height: 32px;}
 .top-search-btn{width: 86px;height: 38px;background: #e31939;border: 0;float:left;padding:0;color:#fff;font-size:16px;outline: none;}
-.top-search-txtcontainer{width: 540px;height: 40px;position: relative;z-index: 8;;}
+.top-search-txtcontainer{width: 540px;height: 40px;position: relative;z-index: 7;;}
 /*搜索热词*/
 .hotword{width: 450px;position: absolute;left:0;top:38px;background: #fff;border:1px solid #ddd;display: none;}
 .hotword ul{padding-left: 5px;}

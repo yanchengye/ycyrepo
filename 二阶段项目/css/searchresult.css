@@ -73,11 +73,11 @@
 .newgoods{width: 51px;height: 50px;background: url(../img/detail/common.png) no-repeat -76px -75px;position: absolute;right:5px;top:5px;font-size: 14px;line-height: 50px;text-align: center;color:#fff;}
 
 
-.searchresultgoods ul li .puttoshopcart{height: 30px;width: 238px;position: absolute;left:-4px;bottom:-30px;display:none;z-index: 8;}
-.searchresultgoods ul li .puttoshopcart a{height: 30px;width: 238px;background: #e4393c;text-align:center;line-height: 30px;color:#fff;display: block;position: absolute;left:0;top:0;z-index: 8;}
-.puttoshopcarttop{width: 238px;height: 4px;background: #e4393c;position: absolute;left:0;top:-384px;z-index: 8;}
-.puttoshopcartleft{width: 4px;height: 382px;background: #e4393c;position: absolute;left:0;top:-382px;z-index: 8;}
-.puttoshopcartright{width: 4px;height: 382px;background: #e4393c;position: absolute;right:0;top:-382px;z-index: 8;}
+.searchresultgoods ul li .puttoshopcart{height: 30px;width: 238px;position: absolute;left:-4px;bottom:-30px;display:none;z-index: 7;}
+.searchresultgoods ul li .puttoshopcart a{height: 30px;width: 238px;background: #e4393c;text-align:center;line-height: 30px;color:#fff;display: block;position: absolute;left:0;top:0;z-index: 7;}
+.puttoshopcarttop{width: 238px;height: 4px;background: #e4393c;position: absolute;left:0;top:-384px;z-index: 7;}
+.puttoshopcartleft{width: 4px;height: 382px;background: #e4393c;position: absolute;left:0;top:-382px;z-index: 7;}
+.puttoshopcartright{width: 4px;height: 382px;background: #e4393c;position: absolute;right:0;top:-382px;z-index: 7;}
 
 /*guess*/
 #guess{height: 288px;border:1px solid #ddd;margin-top: 75px;width: 1208px;}

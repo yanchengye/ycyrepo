@@ -393,7 +393,8 @@ $(function(){                                        //购物车
 		$('.shopcar>span').text($('.shopcaritem ul').children().length);
 		console.log($.cookie('puttoshopcart'))
 	})
-	var $num=0;
+	var $num=0,
+		$totalpri=0;
 	if($.cookie('puttoshopcart')){           //如果有cookie取出来放进购物车
 		$('.shopcaritem').remove('a');
 		$newdiv=$('<div>');
@@ -413,7 +414,9 @@ $(function(){                                        //购物车
 			$li.html($str2);
 			$('.shopcaritem ul').append($li);
 			$num+=$aGood[i].num;
+			$totalpri+=$aGood[i].pri;
 		})
+		$('.totalprice').text($totalpri);
 		$('.shopcar .isgoods .totalnum').text($num);
 		$('.shopcar>span').text($num);
 	}
@@ -421,6 +424,8 @@ $(function(){                                        //购物车
 	$('.clearall').on('click',function(){                     //购物车里的清空购物车
 		$('.shopcartgoodswrap').css('display','none');
 		$.cookie('puttoshopcart','',{expires:-1});
+		$('.shopcaritem ul').html('');
+		$('.totalnum').text('0');
 	})
 	$('.shopcartgoodsinfo6 a').on('click',function(){         //购物车里的删除按钮	
 		$(this).parent().parent().css('display','none');

@@ -1,8 +1,13 @@
 $(function(){
 	$('.searchresultgoods ul li').hover(function(){       //划过商品显示加入购物车按钮
 		$('.puttoshopcart').stop(true,true).eq($(this).index()).fadeIn();
+		$(this).css('z-index','8');
 	},function(){
-		$('.puttoshopcart').stop(true,true).eq($(this).index()).fadeOut();
+		var $that=$(this);
+		$('.puttoshopcart').stop(true,true).eq($(this).index()).fadeOut(function(){
+			$that.css('z-index','7');
+		});
+		
 	})
 
 	$('.guessprobable ul li').clone().appendTo($('.guessprobable ul'));

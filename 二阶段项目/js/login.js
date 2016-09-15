@@ -73,9 +73,12 @@ $(function(){
 		}
 		if(($num1+$num2+$num3)==1){
 			$('#registerfromphone .passstrength').eq(0).addClass('color1');
+			$('#registerfromphone .passstrength').eq(1).removeClass('color2');
+			$('#registerfromphone .passstrength').eq(2).removeClass('color2');
 		}else if(($num1+$num2+$num3)==2){
 			$('#registerfromphone .passstrength').eq(0).removeClass('color1');
 			$('#registerfromphone .passstrength').eq(1).addClass('color2');
+			$('#registerfromphone .passstrength').eq(2).removeClass('color2');
 		}else if(($num1+$num2+$num3)==3){
 			$('#registerfromphone .passstrength').eq(0).removeClass('color1');
 			$('#registerfromphone .passstrength').eq(1).removeClass('color2');
@@ -114,8 +117,11 @@ $(function(){
 			reg2=/[a-z]/,
 			reg3=/[0-9]/;
 		$('.passstrength').addClass('changeborder');
-		if($('#registerfromemailpass').val()==''){
+		if($('#registerfromemailpass').val()===''){
 			$('.passstrength').removeClass('changeborder');
+			$('#registerfromemail .passstrength').eq(0).removeClass('color1');
+			$('#registerfromemail .passstrength').eq(1).removeClass('color2');
+			$('#registerfromemail .passstrength').eq(2).removeClass('color2');
 		}
 		if(reg.test($('#registerfromemailpass').val())==true){
 			$num1=1;
@@ -141,6 +147,11 @@ $(function(){
 			$('#registerfromemail .passstrength').eq(0).removeClass('color1');
 			$('#registerfromemail .passstrength').eq(1).removeClass('color2');
 			$('#registerfromemail .passstrength').eq(2).addClass('color2');
+		}else{
+			$('.passstrength').removeClass('changeborder');
+			$('#registerfromemail .passstrength').eq(0).removeClass('color1');
+			$('#registerfromemail .passstrength').eq(1).removeClass('color2');
+			$('#registerfromemail .passstrength').eq(2).removeClass('color2');
 		}
 	})
 

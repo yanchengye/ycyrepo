@@ -148,15 +148,6 @@
 .tabwrap .act{display: block;}
 .crazy-buy-tab .active{border-bottom: 2px solid #e22a40;background:url(../img/wine-act.jpg) no-repeat 96px 40px;display:block;}
 
-/* .crazy-buy-list1{width: 200px;float:left;height: 297px;border-bottom: 1px solid #f0f0f0;}
-.crazy-buy-list1 dt{text-align: center;height: 26px;padding-top: 19px;color:#666;border-bottom: 2px solid #f0f0f0;}
-.crazy-buy-list1 dd{display:none;float:left;}
-.crazy-buy-list1 dd img{margin:15px auto 0;height: 160px;}
-.crazy-buy-list1 dd p{line-height: 19px;margin-top: 3px;color:#666;width: 160px;margin:0 auto;}
-.crazy-buy-list1 dd .price{color:#999;}
-.crazy-buy-list1 dd .price span{color:#e31939;}
-#crazy-buy .active dt{border-bottom: 2px solid #e22a40;background:url(../img/wine-act.jpg) no-repeat 96px 40px;display:block;}
-#crazy-buy .active dd{display: block;} */
 .crazy-buy-list2{width: 210px;float:left;}
 .crazy-buy-list2 i{width: 17px;height: 18px;display: inline-block;float:left;background: url(../img/index.png) no-repeat 0 -125px;font-size: 0;}
 .crazy-buy-list2 dt{text-indent:11px;height: 26px;padding-top: 16px;height: 29px;color:#e22a40;border-bottom: 2px solid #e22a40;line-height: 18px;}

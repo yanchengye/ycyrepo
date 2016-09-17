@@ -182,8 +182,8 @@ a { color:#666; text-decoration:none; }
 .shopcaritem li i:hover{background: #333;color:#fff;}
 .shopcaritem li a{width: 276px;height: 78px;float: left;padding:0;margin:0;}
 .shopcaritem li a:hover h4{color:#e31939;}
-.shopcaritem li a span{float:left;}
-.shopcaritem li a h4{font-size: 13px;line-height: 15px;font-weight: 400;margin: 5px 0 5px;width: 150px;height: 30px;float: left;width: 206px;color:#666;}
+.shopcaritem li a span{float:left;margin-left:5px;}
+.shopcaritem li a h4{font-size: 13px;line-height: 15px;font-weight: 400;margin: 5px 5px 5px;height: 30px;float: left;color:#666;width: 196px;}
 .shopcaritem li a img{width: 70px;height: 70px;float: left;}
 .shopcaritem a{color:#898989;display: block;margin:53px 0 0 52px;}
 .shopcaritem a:hover{text-decoration: underline;color:#f94747;}

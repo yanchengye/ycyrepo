@@ -29,7 +29,7 @@
 .shopcarttitlist4{width: 148px;}
 .shopcarttitlist5{width: 148px;}
 .shopcarttitlist6{width: 99px;}
-.shopcartgoods{border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;min-height: 145px;height:auto!important;height:145px;background:#fff;}
+.shopcartgoods{border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;min-height: 0px;height:auto!important;height:0px;background:#fff;}
 .shopcartstroe{color:#ff0000;line-height: 33px;height: 33px;background: #fafafa;text-indent: 19px;}
 .shopcartgoodsinfo{width: 990px;height: 112px;}
 .shopcartgoodswrap .shopcartgoodsinfo li{float:left;height: 100%;}
@@ -56,7 +56,7 @@
 .continue:hover{background: #f5f5f5;}
 .clearall{float:left;margin-top:26px;color:#bbb;}
 .clearall:hover{text-decoration: underline;}
-.priceinfo{float:left;margin-top: 24px;margin-left: 213px;}
+.priceinfo{float:left;margin-top: 24px;margin-left: 213px;width: 250px;}
 .totalprice{color:#e31939;font-size: 16px;font-weight: 900;}
 .gotopay{width: 150px;height: 40px;background: #e31939;font-size: 17px;color:#fff;float:left;margin:12px 0 0 26px;border:0;}
 

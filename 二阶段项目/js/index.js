@@ -468,7 +468,7 @@ $(function(){                                        //购物车
 		var $aGood=JSON.parse($.cookie('puttoshopcart'));
 		//console.log($aGood);
 		$goodid=$(this).parent().prev().prev().prev().prev().find('dd').find('a').text();
-		console.log($goodid);
+		//console.log($goodid);
 		$.each($aGood,function(i){
 			if($aGood[i].goods==$goodid){
 				$aGood.splice(i,1);

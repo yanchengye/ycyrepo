@@ -72,6 +72,8 @@ $(function(){
 		$('.hotword').css('display','none');
 	})
 	
+	var $num=0,
+		$totalpri=0;
 	//购物车设置开始
 	$('.puttoshopcart a').on('click',function(){
 		var $goodsname=$(this).parent().prev().prev().prev().find('dd').find('a').text(),
@@ -117,7 +119,27 @@ $(function(){
 			$('.thisnone').css('display','none');
 			$('.shopcaritem ul').css('display','block');
 		}
-		
+		$('.shopcartgoods').html('');
+		$('.shopcaritem ul').html('');
+		$('.thisnone').css('display','none');
+		$('.shopcaritem ul').css('display','block');
+		var $aGood=JSON.parse($.cookie('puttoshopcart'));
+		$.each($aGood,function(i){
+			$shopcarstr='<div class="shopcartgoodsinfo"><li class="shopcartgoodsinfo1"><input type="checkbox" /></li><li class="shopcartgoodsinfo2"><dl><dt><a href="javascript:;"><img src="'+$aGood[i].img+'" alt=""></a></dt><dd><p><a href="javascript:;">'+$aGood[i].goods+'</a></p><span>尺码: </span><span>颜色: </span></dd></dl></li><li class="shopcartgoodsinfo3">'+$aGood[i].num+'</li><li class="shopcartgoodsinfo4">'+$aGood[i].pri+'</li><li class="shopcartgoodsinfo5">'+$aGood[i].pri*$aGood[i].num+'</li><li class="shopcartgoodsinfo6"><a href="javascript:;">删除</a></li></div>';
+			$div=$('<div>');                        //创建标签 放到购物车里
+			$div.attr('class','shopcartgoodswrap');
+			$div.html($shopcarstr);
+			$('.shopcartgoods').append($div);
+			$li=$('<li>');
+			$str2='<a href="javascript:;"><img src="'+$aGood[i].img+'" alt=""><h4>'+$aGood[i].goods+'</h4><span>'+$aGood[i].pri+'<strong>X</strong>'+$aGood[i].num+'</span></a><i>X</i>';
+			$li.html($str2);
+			$('.shopcaritem ul').append($li);
+			$num+=$aGood[i].num;
+			$totalpri+=$aGood[i].pri*$aGood[i].num;      //总价钱
+		})
+		$('.totalprice').text($totalpri);
+		$('.shopcar .isgoods .totalnum').text($num);          //侧边购物车的数量显示
+		$('.shopcar>span').text($num);
 	})
 	
 	

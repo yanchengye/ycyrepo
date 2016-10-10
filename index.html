@@ -12,9 +12,14 @@
   <body>
     <section class="page-header">
      
-      <p>肉丝思密达，我最爱的小胖子</p>
+      <p id="p" style="font-size:30px;">肉丝思密达，我最爱的小胖子</p>
       <body>
-
+        <script>
+          setIntetval(function(){
+             document.getElementById('p').style.color = '#'+Math.random()*10++Math.random()*10+Math.random()*10;
+          },500)
+         
+        </script>
 
 <canvas id="canv" width="1423" height="204"></canvas>
 <script>

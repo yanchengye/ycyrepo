@@ -1,0 +1,44 @@
+﻿
+[{
+    "category": "规范",
+    "name": "HTML4、HTML5、ES5、ES6、CommonJS、CMD、AMD等",
+    "time": "1年",
+    "level": "了解",
+    "src":"./images/h5.png"
+}, {
+    "category": "框架",
+    "name": "Jquery、Zepto、AngularJs、Recat、Avalon等",
+    "time": "2年",
+    "level": "熟悉",
+    "src":"./images/css3.png"
+}, {
+    "category": "框架",
+    "name": "Mui、Yo、Ionic等",
+    "time": "2年",
+    "level": "熟悉",
+    "src":"./images/js.png"
+}, {
+    "category": "类库",
+    "name": "Swiper、Iscroll等",
+    "time": "2年",
+    "level": "熟悉",
+    "src":"./images/jquery.png"
+}, {
+    "category": "插件",
+    "name": "Jquery menu plugin、Jquery nav plugin、zepto emoji-expression-plugin等",
+    "time": "2年",
+    "level": "熟悉",
+    "src":"./images/zepto.png"
+}, {
+    "category": "布局",
+    "name": "Fixed、Fulid、Flex、Responsive",
+    "time": "3年",
+    "level": "精通",
+    "src":"./images/gulp.png"
+}, {
+    "category": "程序",
+    "name": "Javascript原生、Jquery及Zepto插件、AngularJs等",
+    "time": "3年",
+    "level": "精通",
+    "src":"./images/angular.png"
+}]

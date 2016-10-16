@@ -1,0 +1,11 @@
+﻿[
+	{
+		"category":"企业网站",
+		"name":"聚惠买",
+		"url":"www.juhuimai.cn",
+		"image":"./images/product.png",
+		"description":"聚惠买商城网络电商平台，中原地区专业化电子商务网购产品分销平台。",
+		"detail":"项目耗时2周，主要处理前端页面及程序嵌套，当时并未要求移动端适配，故该网站只适应于PC端应用",
+		"tech":"Html、Css2、jQuery等"
+	}
+]

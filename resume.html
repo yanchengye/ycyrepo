@@ -6,6 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>个人简历</title>
 	<link rel="stylesheet" href="css/index.css">
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 </head>
 <body>
 	<span class="preload" style="display:flex;align-items:center;width:100%;height:100%;justify-content:center;background:#fff;"><img src="./images/loading.gif"></span>
@@ -14,46 +16,140 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide swiper-slide1">
 				<img class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s" src="./images/lucky.png" alt="">
-                
             </div>
             <div class="swiper-slide swiper-slide2">
 				<img class="ani" swiper-animate-effect="rollIn" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s" src="./images/workhard.png" alt="">
-                
+            </div>
+			<div class="swiper-slide swiper-slide4">
+				<p class="ani" swiper-animate-effect="flip" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">天空才是我的极限！</p>
             </div>
             <div class="swiper-slide swiper-slide3">
-				
-				<div class="ani" swiper-animate-effect="flip" swiper-animate-duration="2s" swiper-animate-delay="0.3s">
+				<div class="ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.0s" swiper-animate-delay="0.3s">
 					<img class="ani2" src="./images/yq0KZFX2QLiAUO_tAAAc_oJpqv4724.png" alt="">
 				</div>
                 <button id="enter">点击体验</button>
-				
             </div>
         </div>
 		<div class="swiper-pagination"></div>
     </div>
 	<!--iscroll-->
-	<div id="mainContent">
+	<div id="mainContent" style="display:none;">
 	    <div id="header">
 			<span>+</span>
 			<span>我的简历</span>
 			<span>share</span>
 		</div>
-		<div id="wrapper">
-			<div id="scroller">
-				<ul>
-				</ul>
+		
+			<div id="wrapper" class="swiper-container2">
+				<div class="swiper-wrapper">
+					<div id="scroller" class="swiper-slide">
+						<ul>
+						</ul>
+					</div>
+					<div id="scroller1" class="swiper-slide">
+						<ul>
+						</ul>
+					</div>
+					<div id="scroller2" class="swiper-slide">
+						<ul>
+						</ul>
+					</div>
+					<div id="scroller3" class="swiper-slide">
+						<ul>
+						</ul>
+					</div>
+					<div id="scroller4" class="swiper-slide">
+						<ul>
+						</ul>
+					</div>
+				</div>
 			</div>
-		</div>
 
-		<div id="footer">
-			<div class="button active" id="skill"><i class="iconfont">&#xe649;</i>技能</div>
-			<div class="button" id="product"><i class="iconfont">&#xe653;</i>作品</div>
-			<div class="button" id="work"><i class="iconfont">&#xe655;</i>经历</div>
-			<div class="button" id="interest"><i class="iconfont">&#xe676;</i>兴趣</div>
-			<div class="button" id="my"><i class="iconfont">&#xe61b;</i>我</div>
-		</div>
+			<div id="footer">
+				<div class="button active" id="skill"><i class="iconfont">&#xe649;</i>技能</div>
+				<div class="button" id="product"><i class="iconfont">&#xe653;</i>作品</div>
+				<div class="button" id="work"><i class="iconfont">&#xe655;</i>经历</div>
+				<div class="button" id="interest"><i class="iconfont">&#xe676;</i>兴趣</div>
+				<div class="button" id="my"><i class="iconfont">&#xe61b;</i>我</div>
+			</div>
+		
 	</div>
 		
 	<script src="js/index.js"></script>
+	<script>
+		window.onload=function(){
+            //document.body.removeChild(document.getElementsByTagName('script')[4]);
+            document.body.removeChild(document.body.children[document.body.children.length-1]);
+        }
+        $('#header span:nth-child(1)').on('tap',function(){
+        	$.post("http://984639084.applinzi.com/php/getsign.php",
+                   {url:window.location.href},
+                function(data){
+            		console.log(data);
+                    pos=data.indexOf('}');
+                	dataStr=data.substring(0,pos+1);
+                	objData=JSON.parse(dataStr);
+                    console.log(dataStr);
+                    wx.config({
+                        debug:true,
+                        appId:objData.appId,
+                        timestamp:objData.timestamp,
+                        nonceStr:objData.nonceStr,
+                        signature:objData.signature,
+                        jsApiList:[
+                            'scanQRCode'
+                        ]
+                    });
+                    wx.ready(function(){
+                        wx.scanQRCode({
+                            needResult:1,
+                            scanType:['qrCode','barCode'],
+                            success:function(res){
+                            var result =res.resultStr
+                            //alert(res);
+                            }
+                        });
+                         
+                    });
+                });
+        })
+        $('#header span:nth-child(3)').on('tap',function(){
+        	$.post("http://984639084.applinzi.com/php/getsign.php",
+                   {url:window.location.href},
+                function(data){
+            		console.log(data);
+                    pos=data.indexOf('}');
+                	dataStr=data.substring(0,pos+1);
+                	objData=JSON.parse(dataStr);
+                    console.log(dataStr);
+                    wx.config({
+                        debug:true,
+                        appId:objData.appId,
+                        timestamp:objData.timestamp,
+                        nonceStr:objData.nonceStr,
+                        signature:objData.signature,
+                        jsApiList:[
+                            'onMenuShareTimeline'
+                        ]
+                    });
+                    wx.ready(function(){
+                        alert('以获取分享信息，请手动点击分享朋友圈！')
+                         wx.onMenuShareTimeline({
+                            title: 'ycy\'s resume', // 分享标题
+                            link: window.location.href, // 分享链接
+                            imgUrl: 'http://984639084.applinzi.com/www/images/h5.png', // 分享图标
+                            success: function () { 
+                                // 用户确认分享后执行的回调函数
+                                alert('谢谢分享！')
+                            },
+                            cancel: function () { 
+                                // 用户取消分享后执行的回调函数
+                                alert('thanks a lot!')
+                            }
+                        });
+                    });
+                });
+        })
+	</script>
 </body>
 </html>

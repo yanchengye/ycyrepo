@@ -31,6 +31,7 @@
         //transform: scale(0.2);
         transform-style: preserve-3d;
         position: relative;
+        perspectiveOrigin:100px;
     }
     
     .item {
@@ -161,13 +162,12 @@
     }
     </script>
     <section class="page-header">
+    	<a href="./resume.html" style="font-size: 30px;color:purple;">点这里</a>
         <p id="p" style="font-size:30px;">肉丝思密达，我最爱的小胖子</p>
-		<a href="./resume.html" style="font-size: 30px;color:pink;">点这里</a>
+		
         <body>
             <script>
-            setInterval(function() {
-                document.getElementById('p').style.color = '#' + parseInt(Math.random() * 10) + parseInt(Math.random() * 10) + parseInt(Math.random() * 10) + parseInt(Math.random() * 10) + parseInt(Math.random() * 10) + parseInt(Math.random() * 10);
-            }, 500)
+            
             </script>
             <canvas id="canv" width="1423" height="204"></canvas>
             <script>

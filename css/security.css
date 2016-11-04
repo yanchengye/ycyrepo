@@ -1,0 +1,61 @@
+
+#securitycenter,#securitytree{width: 1210px;margin:0 auto;}
+
+#securitycontent{min-height:1000px;height:auto!important;height:1000px;padding-bottom: 17px;}
+#securitycontent:after{content:'.';height:0;display: block;clear:both;overflow: hidden;visibility: hidden;}
+
+/*主要内容区*/
+#securitytree{height: 39px;}
+#securitytree li{float:left;line-height: 38px;margin-right: 4px;height: 39px;}
+#securitytree li a:hover{color:#E4393C;text-decoration: underline;}
+#securitytree li i{float:left;width: 11px;height: 11px;background:url(../img/user_header.png) no-repeat -427px -208px;margin:14px 4px 0 0;}
+/*左侧导航*/
+.sc-left{width: 210px;float:left;margin-right: 15px;}
+.sclheader{height: 183px;}
+.sclheader p{height: 40px;line-height: 40px;color:#fff;font-weight: 900;text-indent: 19px;background:#ed5854;}
+.sclheader p a{color:#fff;}
+.sclheader .main{height: 143px;background: url(../img/userinfo_bg.png) no-repeat;}
+.userhead{padding:14px 0 0 16px;height: 80px;}
+.userheadbg{width: 80px;height: 80px;float:left;position: relative;}
+.userheadbg div{width: 80px;height: 80px;position: absolute;left:0;top:0;background:url(../img/mask.png) no-repeat;}
+.userhead img{width: 80px;height: 80px;float:left;}
+.userhead a:hover{color:#E4393C;text-decoration: underline;}
+.changeinfo{margin:7px 0 10px 20px;float:left;}
+.changeinfo i{width: 14px;height: 14px;float:left;background:url(../img/user_center.png) no-repeat -2px -2px;margin-right: 6px;}
+.quit{float:left;margin-left: 20px;}
+.quit i{width: 14px;height: 14px;float:left;background:url(../img/user_center.png) no-repeat 0px -25px;margin-right: 6px;}
+.main .username{margin-top: 16px;color:#ed5b5b;width: 190px;padding-left: 20px;}
+.sclnav{height: 814px;background:#fbfbfb;overflow: hidden;}
+.vipcenter,.tradecenter,.servicecenter{padding-left: 30px;}
+.vipcenter .tit,.tradecenter .tit,.servicecenter .tit{font-size: 14px;line-height: 14px;color:#333;margin-top: 13px;margin-bottom: 15px;height: 14px;cursor: auto;}
+.sclnav .tit:hover{background: #fbfbfb;color:#333;}
+.vipcenter .tit i,.tradecenter .tit i,.servicecenter .tit i{width: 21px;height: 17px;float:left;background:url(../img/user.png) no-repeat -129px 0;margin-right: 11px;}
+.sclnav li{width: 168px;height: 30px;position: relative;cursor: pointer;}
+.sclnav li a{line-height: 30px;padding-left: 31px;}
+.sclnav li a i{width: 5px;height: 9px;background:url(../img/user.png) no-repeat -221px 0;display: block;position: absolute;right:29px;top:10px;}
+.sclnav li:hover{background:#f0f0f0;color:#E4393C;}
+.sclnav li:hover a{color:#E4393C;}
+.sclnav li a:hover{text-decoration: underline;}
+.sclnav .active a{color:#E4393C;}
+.tradecenter .tit i{background-position: -62px 0;}
+.servicecenter .tit i{background-position: -96px 0;}
+/*右侧内容*/
+.sc-right{width: 985px;float:left;}
+.scrtit{height: 26px;font-size: 17px;line-height: 17px;width: 679px;border-bottom: 2px solid #ff6600;padding-top: 14px;}
+.scrtit span{width: 106px;height: 13px;display: inline-block;background:url(../img/user_center.png) no-repeat -242px -192px;margin: 0 15px 0 10px;}
+.password{height: 380px;border:1px solid #e6e6e6;border-bottom: 0;margin-top: 10px;}
+.passworditem1,.passworditem2,.passworditem3{height: 62px;border-bottom: 1px solid #e6e6e6;padding-top: 30px;}
+.passworditem4{height: 70px;border-bottom: 1px solid #e6e6e6;padding-top: 30px;}
+.loginpassword{height: 32px;width: 196px;border-right: 1px solid #e6e6e6;float:left;font-size:17px;line-height: 32px;}
+.loginpassword i{width: 32px;height: 33px;background:url(../img/user_center.png) no-repeat -175px -150px;float:left;margin:0 37px 0 26px;}
+.passworditem3 .loginpassword i,.passworditem4 .loginpassword i{background-position: -100px -150px;}
+.tips{width: 486px;padding-left: 15px;line-height: 32px;height: 32px;color:#999;float:left;}
+.inportant{width: 88px;height: 32px;float:left;}
+.inportant a{width: 40px;height: 26px;display:block;background: #ed5854;color:#fff;line-height: 26px;margin: 3px auto;text-align: center;}
+.passworditem3 .tips,.passworditem4 .tips{color:#cf0f02;}
+.passworditem3 .inportant a{width: 64px;}
+.passworditem4 .inportant a{width: 88px;}
+.foget{margin-left: 35px;float:left;}
+.foget p{margin-bottom: 14px;}
+.foget p a{color:#ed5854;}
+.foget p a:hover{text-decoration: underline;}

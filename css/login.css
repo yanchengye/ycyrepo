@@ -1,0 +1,102 @@
+
+
+#login-head,#midwrap,#login-foot,#register-head,#register-midwrap{width: 990px;margin:0 auto;}
+/*登陆页面的css*/
+/*头部*/
+#login-head{height: 146px;}
+#logo{padding-left: 46px;float:left;margin-right: 14px;}
+.welcom{height: 44px;width: 128px;border-left: 1px solid #ddd;font-size: 26px;line-height: 44px;color:#666;text-align: right;}
+.welwrap{padding-top: 26px;margin-right: 376px;float:left;}
+.chatwrap{float:left;padding-top: 36px;}
+.chatwrap .wechatwrap .wechat{width: 24px;height: 20px;background: url(../img/login/login.png) no-repeat -123px -11px;position: absolute;left:0;top:0;}
+.chatwrap .sina{width: 23px;height: 19px;float:left;background: url(../img/login/login.png) no-repeat -64px -11px;margin-right: 20px;}
+.chatwrap .tencent{width: 23px;height: 22px;float:left;background: url(../img/login/login.png) no-repeat -12px -11px;}
+.wechatwrap{position: relative;float:left;width: 24px;height: 20px;margin-right: 20px;z-index: 9;}
+.wechatwrap .wechatfloat{position: absolute;top:30px;left:-60px;background: #fff;border:1px solid #c0c0c0;width: 165px;height: 200px;display:none;text-align: center;z-index: 9;}
+.wechatwrap .wechatfloat img{width: 160px;margin: 20px auto;}
+.createwrap{width: 120px;float:right;text-align: right;margin-top: 68px;font-size: 11px;}
+.createwrap a{color:#e4393c;}
+.createwrap a:hover{text-decoration: underline;}
+
+/*midwrap*/
+#midwrap{height: 412px;position: relative;overflow: hidden;}
+.midwrap-left{width: 400px;position: absolute;left:-400px;top:40px;}
+.midwrap-right{width: 300px;height: 410px;position: absolute;right:-382px;top:0;border:1px solid #ddd;box-shadow: #ccc 0 0 5px;padding:0 40px;}
+.logintxtwrap{height: 58px;padding-top: 30px;margin-bottom: 10px;}
+.logintxtwrap p{color:#666;margin-bottom: 8px;}
+.logintxt{width: 293px;height: 36px;border:1px solid #ccc;padding-left: 5px;line-height: 36px;outline: none;}
+.loginpasswrap{height: 74px;}
+.loginpasswrap p{color:#666;margin-bottom: 8px;}
+.loginpass{width: 293px;height: 36px;border:1px solid #ccc;padding-left: 5px;line-height: 36px;outline: none;}
+.loginremember{height: 29px;}
+.loginremember input,.loginremember span{float:left;color:#666;}
+.loginremember input{margin-right: 5px;width: 12px;height: 12px;}
+.loginremember a{float:right;color:#e4393c;}
+.login-submit{width: 300px;height: 35px;background: #e4393c;color:#fff;border:0;font-size: 13px;font-family: '微软雅黑';margin-bottom: 23px;}
+.social a{float:left;height: 23px;line-height: 20px;color:#666;cursor:pointer;}
+.social a:hover{color:#e4393c;}
+.social i{width: 23px;height: 23px;float:left;background:url(../img/login/login.png) no-repeat;margin-right: 8px;}
+.social-wechat{width: 56px;margin:0 17px 0 5px;}
+.social-wechat i{background-position:  -170px -40px}
+.social-qq i{background-position:  -10px -40px}
+.social-sina i{background-position:  -63px -40px}
+.social-alipay i{background-position:  -125px -40px}
+.social-qq{width: 51px;margin-right: 18px;}
+.social-sina{width: 56px;margin-right: 19px;}
+.social-alipay{width: 67px;}
+
+/*login-foot*/
+#login-footwrap{background:#fafafa;margin-top: 30px;}
+#login-foot{height: 68px;padding-top: 22px;text-align: center;color:#666;}
+#login-foot p{margin-bottom: 12px;}
+#login-foot p a{color:#666;}
+#login-foot p a:hover{color:#f47476;text-decoration: underline;}
+/*登陆页面结束*/
+
+/*注册页面样式开始*/
+#register-head{height: 115px;}
+#register-midwrap{height: 484px;}
+.register-midwrap-left{float:left;width: 400px;padding-top: 70px;}
+.register-midwrap-right{width: 382px;height: 454px;float:right;}
+.register-mid-tit{width: 382px;height: 33px;font-weight: 100;}
+.registerway{width: 132px;height: 32px;border-bottom: 1px solid #ddd;float:left;font-size:12px;color:#666;line-height: 36px;text-align: center;}
+.register-mid-tit .active{border:1px solid #ddd;border-bottom: 0;color:#e5393e;line-height: 30px;width:130px;height:32px;}
+.register-mid-tit p{width: 118px;float:left;height: 32px;border-bottom: 1px solid #ddd;text-align: right;line-height: 28px;color:#666;font-size: 12px;}
+.register-mid-tit p a{color:#e5393e;}
+.register-mid-tit p a:hover{text-decoration: underline;}
+.register-container{height: 420px;width: 380px;border:1px solid #ddd;border-top: 0;}
+.phone-email{padding:30px 0 0 40px;}
+.phone-email .txt{height: 68px;position: relative;}
+.phone-email .txt label{display: block;line-height: 20px;color:#990000;}
+.pass label{display: block;line-height: 20px;color:#990000;}
+#registerfromemail .txt i{background-position: -1px -75px;}
+#registerfromemail .captcha i{background-position: -1px -75px;}
+.phone-email .txt i{width: 14px;height: 21px;display: block;position: absolute;left: 9px;top: 7px;background: url(../img/register/register.png) no-repeat -1px -50px;}
+.phone-email .txt input{width: 263px;height: 36px;border:1px solid #ccc;padding-left: 30px;line-height: 36px;outline: none;color:#808080;}
+.phone-email .pass{height: 78px;position: relative;}
+.phone-email .pass i{width: 14px;height: 19px;display: block;position: absolute;left: 9px;top: 9px;background: url(../img/register/register.png) no-repeat -1px -25px;}
+.phone-email .pass input{width: 263px;height: 36px;border:1px solid #ccc;padding-left: 30px;line-height: 36px;outline: none;color:#808080;}
+.phone-email .pass .passstrength{width: 98px;height: 20px;border-bottom: 2px solid #fff;float:left;text-align: center;line-height: 18px;margin-top: 9px;}
+.phone-email .pass .changeborder{border-color: #ccc;}
+.phone-email .pass .color1{border-color: #ff0000;}
+.phone-email .pass .color2{border-color: #ff9900;}
+.phone-email .pass .color3{border-color: #33cc00;}
+.passagain{height: 68px;}
+.captcha{height: 82px;position: relative;}
+.shortmeassage{float:left;width: 320px;height: 30px;line-height: 30px;padding-left: 20px;}
+.captcha input[type='text']{width: 125px;height: 36px;border:1px solid #ccc;padding-left: 30px;line-height: 36px;outline: none;color:#808080;float: left;}
+.captcha i{width: 14px;height: 21px;display: block;position: absolute;left: 9px;top: 7px;background: url(../img/register/register.png) no-repeat -1px -50px;}
+.captcha input[type='button']{width: 104px;height: 37px;background:#e4393c;color:#fff;border:0;outline: none;margin-left: 10px;float:left;}
+.respect{height: 27px;}
+.respect input{width: 12px;height: 12px;float:left;}
+.respect span{float:left;margin-left: 5px;color:#666;}
+.respect span a{color:#0000ff;}
+.respect span a:hover{text-decoration: underline;}
+.sub{width: 300px;height: 35px;background: #e4393c;color:#fff;border:0;outline: none;}
+.register-midwrap-right .register-container .active{display: block;}
+.register-container .phone-email{display: none;}
+
+
+
+
+/*注册页面结束*/

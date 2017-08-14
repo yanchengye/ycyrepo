@@ -112,7 +112,7 @@
             $("#temp_section").append(canvas);
 
             // 生成的base64 放在需要的一个全局变量中。
-            fbw_img_data = canvas.toDataURL('image/png');
+            fbw_img_data = canvas.toDataURL('image/jpeg');
             var newimg = document.createElement("img");
             newimg.src = fbw_img_data;
             $("#temp_section").append(newimg);

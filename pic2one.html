@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+    .margin-auto {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    img {
+        width: 300px;
+    }
+    </style>
+    <title>合并图片</title>
+</head>
+
+<body>
+    <div class="margin-auto">
+        <input type="file" id="test-image-file" multiple>
+        <button>上传并拼接</button>
+        <a id="down" href="" download style="display: none">下载此图片</a>
+        <div id="temp_section"></div>
+    </div>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+    var arr = [];
+    var
+        fileInput = document.getElementById('test-image-file'),
+        info = document.getElementById('test-file-info'),
+        preview = document.getElementById('test-image-preview');
+    // 监听change事件:
+    fileInput.addEventListener('change', function() {
+        // 获取File引用:
+        var file = fileInput.files[0];
+        // 读取文件:
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var
+                data = e.target.result; // 'data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...'
+            arr.push({ "src": data });
+            // preview.style.backgroundImage = 'url(' + data + ')';
+        };
+        // 以DataURL的形式读取文件:
+        reader.readAsDataURL(file);
+    });
+    document.getElementsByTagName('button')[0].onclick = function() {
+        console.log(arr)
+        _mergeImage2Canvas()
+    }
+    _mergeImage2Canvas = function() {
+        // 获取file上传和展现的图片。一般file上传之后，有个小图标展现。
+        var imgs = arr;
+        if (!imgs) {
+            return false;
+        }
+
+        // 创建原始图像
+        // 原因：file上传之后，展现往往是个缩略图，无法取到真正大小
+        for (var i = 0; i < imgs.length; i++) {
+            var fbwImg = document.createElement("img");
+            var fbwImgID = "temp_img_id" + i;
+            $("#" + fbwImgID).remove();
+            fbwImg.src = imgs[i].src;
+            fbwImg.className = "temp_img_class";
+            // 不显示，仅供调用
+            fbwImg.style.display = "none";
+
+            // 临时区域扩展
+            $("#temp_section").append(fbwImg);
+        }
+
+        // 合并原始图片，生成一个新的base64 图片
+        var getOriginImgBase64 = function(oriImgs) {
+            if (!oriImgs) {
+                return false;
+            }
+
+            // 获取canvas的宽高
+            // 原因：canvas需要首先指定宽高，所以需要提前获取最终的宽高
+            var maxWidth = 0;
+            var height = 0;
+            for (var i = 0; i < oriImgs.length; i++) {
+                var img = oriImgs[i];
+                if (img.width > maxWidth) {
+                    maxWidth = img.width;
+                }
+                height += img.height;
+            }
+
+            // 设定canvas
+            var canvas = document.createElement("canvas");
+            canvas.width = maxWidth + 10;
+            canvas.height = height + 10;
+            var str = "width:"+ canvas.width*2 + "px;height:"+ canvas.height*2 + 'px;';
+            canvas.setAttribute("style",str)
+            var ctx = canvas.getContext("2d");
+
+            // 留5margin
+            var dheight = 0;
+            for (var j = 0; j < oriImgs.length; j++) {
+                var img = oriImgs[j];
+                var cheight = img.height;
+                var cwidth = img.width;
+
+                // 留5 margin
+                ctx.drawImage(img, 0, dheight, cwidth, cheight);
+
+                dheight = dheight + cheight + 0;
+            }
+            $("#temp_section").append(canvas);
+
+            // 生成的base64 放在需要的一个全局变量中。
+            fbw_img_data = canvas.toDataURL('image/jpeg');
+            var newimg = document.createElement("img");
+            newimg.src = fbw_img_data;
+            $("#temp_section").append(newimg);
+            $('#down').attr('href', fbw_img_data).css('display', 'block');
+
+            // 清理
+            $(".temp_img_class").remove();
+        };
+
+        // 之所以使用timer，考虑到dom树如果没有加载完成，会取到高度有误差
+        var imgTimer = null;
+        imgTimer = setTimeout(function() {
+            getOriginImgBase64($(".temp_img_class"));
+
+            if (imgTimer) {
+                clearTimeout(imgTimer);
+            }
+        }, 300);
+    }
+    </script>
+</body>
+
+</html>

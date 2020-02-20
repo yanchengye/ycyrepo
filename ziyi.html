@@ -14,17 +14,21 @@
         body {
             margin: 0;
             height: 100vh;
-            background: url('./timg.jpg');
-            background-attachment: fixed;
+            background: skyblue;
         }
         
         #box {
-            color: white;
+            color: #000;
         }
         
         .width {
             display: inline-block;
-            width: 10em;
+            width: 33.333%;
+            min-width: 246px;
+        }
+        
+        input {
+            width: 5em;
         }
     </style>
 </head>
@@ -33,51 +37,68 @@
     <div id="box">
     </div>
     <button id="btn">提交答案</button>
+    <button id="btn2">继续做题</button>
     <script>
         var arr = []
-        var box = document.querySelector('#box')
-        var btn = document.querySelector('#btn')
-        while (arr.length < 100) {
-            var obj = {}
-            var res = null
-            obj.num1 = Math.round(Math.random() * 99)
-            obj.num2 = Math.round(Math.random() * 99)
-            obj.num3 = Math.round(Math.random() * 99)
-            if (Math.round(Math.random())) {
-                res += obj.num1 + obj.num2
-                obj.opera = '+'
-            } else {
-                res = obj.num1 - obj.num2
-                obj.opera = '-'
-            }
-            if (res >= 0 && res < 100) {
+
+        function set() {
+            arr = []
+            while (arr.length < 100) {
+                var obj = {}
+                var res = null
+                obj.num1 = Math.round(Math.random() * 99)
+                obj.num2 = Math.round(Math.random() * 99)
+                obj.num3 = Math.round(Math.random() * 99)
                 if (Math.round(Math.random())) {
-                    res += obj.num3
-                    obj.opera1 = '+'
+                    res += obj.num1 + obj.num2
+                    obj.opera = '+'
                 } else {
-                    res += -obj.num3
-                    obj.opera1 = '-'
+                    res = obj.num1 - obj.num2
+                    obj.opera = '-'
                 }
                 if (res >= 0 && res < 100) {
-                    obj.res = res
-                    arr.push(obj)
+                    if (Math.round(Math.random())) {
+                        res += obj.num3
+                        obj.opera1 = '+'
+                    } else {
+                        res += -obj.num3
+                        obj.opera1 = '-'
+                    }
+                    if (res >= 0 && res < 100) {
+                        obj.res = res
+                        arr.push(obj)
+                    }
                 }
             }
+            var str = ''
+            arr.forEach((item, idx) => {
+                str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=<input class="user" type="text">' + '<span class="res"></span></span>'
+            })
+            box.innerHTML = str
         }
-        var str = ''
-        arr.forEach((item, idx) => {
-            str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=</span><input class="user" type="text">' + '答案：<span class="res"></span><br>'
-        })
-        box.innerHTML = str
+        var box = document.querySelector('#box')
+        var btn = document.querySelector('#btn')
+        var btn2 = document.querySelector('#btn2')
+        set()
         btn.addEventListener('click', function() {
             var user = document.querySelectorAll('.user')
             var rr = document.querySelectorAll('.res')
+            var num = 0
             arr.forEach((item, idx) => {
-                rr[idx].innerHTML = item.res
+                rr[idx].innerHTML = '答案：' + item.res
                 if (item.res != user[idx].value) {
                     user[idx].style.color = 'red'
+                    num++
                 }
             })
+            if (num) {
+                alert('本次做错了' + num + '道，继续努力！')
+            } else {
+                alert('本次全部做对，恭喜！')
+            }
+        })
+        btn2.addEventListener('click', function() {
+            set()
         })
     </script>
 </body>

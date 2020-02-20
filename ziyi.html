@@ -75,6 +75,16 @@
                 str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=<input class="user" type="text">' + '<span class="res"></span></span>'
             })
             box.innerHTML = str
+            var user1 = document.querySelectorAll('.user')
+            user1.forEach((item, idx) => {
+                item.addEventListener('keydown', function(e) {
+                    if (e.key == 'Enter') {
+                        if (idx + 1 < 100) {
+                            user1[idx + 1].focus()
+                        }
+                    }
+                })
+            })
         }
         var box = document.querySelector('#box')
         var btn = document.querySelector('#btn')

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>愉快的做题吧！</title>
     <style>
         b {
             margin-right: 10px;
@@ -14,6 +14,12 @@
         body {
             margin: 0;
             height: 100vh;
+            background: url('./timg.jpg');
+            background-attachment: fixed;
+        }
+        
+        #box {
+            color: white;
         }
         
         .width {
@@ -44,16 +50,18 @@
                 res = obj.num1 - obj.num2
                 obj.opera = '-'
             }
-            if (Math.round(Math.random())) {
-                res += obj.num3
-                obj.opera1 = '+'
-            } else {
-                res += -obj.num3
-                obj.opera1 = '-'
-            }
-            if (res >= 0) {
-                obj.res = res
-                arr.push(obj)
+            if (res < 100) {
+                if (Math.round(Math.random())) {
+                    res += obj.num3
+                    obj.opera1 = '+'
+                } else {
+                    res += -obj.num3
+                    obj.opera1 = '-'
+                }
+                if (res >= 0 && res < 100) {
+                    obj.res = res
+                    arr.push(obj)
+                }
             }
         }
         var str = ''

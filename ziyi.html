@@ -15,6 +15,7 @@
             margin: 0;
             height: 100vh;
             background: skyblue;
+            overflow: hidden;
         }
         
         #box {
@@ -30,39 +31,89 @@
         input {
             width: 5em;
         }
+        
+        .wrap {
+            text-align: center
+        }
+        
+        #btn,
+        #back {
+            display: none;
+        }
+        
+        .time {
+            display: none;
+            color: yellow;
+        }
+        
+        .boxwrap {
+            height: calc(100vh - 18px);
+            overflow: auto;
+        }
     </style>
 </head>
 
 <body>
-    <div id="box">
+    <div class="wrap set">
+        <input type="text" value="100" class="number">道题<input type="text" value="10" class="minute">分钟完成<br>
+        <button id="btn2">生成题目</button>
     </div>
-    <button id="btn">提交答案</button>
-    <button id="btn2">继续做题</button>
+    <div class="time"></div>
+    <div class="boxwrap">
+        <div id="box">
+        </div>
+        <div class="wrap">
+            <button id="btn">提交答案</button>
+            <button id='back'>回到主页</button>
+        </div>
+    </div>
     <script>
+        var number = document.querySelector('.number')
+        var minute = document.querySelector('.minute')
+        var showtime = document.querySelector('.time')
         var arr = []
+        var timer = null
 
-        function set() {
+        function set(number, time) {
             arr = []
-            while (arr.length < 100) {
+            while (arr.length < number) {
                 var obj = {}
                 var res = null
-                obj.num1 = Math.round(Math.random() * 99)
-                obj.num2 = Math.round(Math.random() * 99)
-                obj.num3 = Math.round(Math.random() * 99)
-                if (Math.round(Math.random())) {
-                    res += obj.num1 + obj.num2
-                    obj.opera = '+'
+                obj.num1 = Math.round(Math.random() * 99) + 1
+                obj.num2 = Math.round(Math.random() * 99) + 1
+                obj.num3 = Math.round(Math.random() * 99) + 1
+                if (obj.num1 < 10 && obj.num2 < 10) {
+                    res += obj.num1 * obj.num2
+                    obj.opera = '×'
+                } else if (obj.num1 > 9 && obj.num2 != 1 && obj.num2 < 10) {
+                    if (obj.num1 % obj.num2 == 0) {
+                        res += obj.num1 / obj.num2
+                        obj.opera = '÷'
+                    }
                 } else {
-                    res = obj.num1 - obj.num2
-                    obj.opera = '-'
-                }
-                if (res >= 0 && res < 100) {
                     if (Math.round(Math.random())) {
-                        res += obj.num3
-                        obj.opera1 = '+'
+                        res += obj.num1 + obj.num2
+                        obj.opera = '+'
                     } else {
-                        res += -obj.num3
-                        obj.opera1 = '-'
+                        res = obj.num1 - obj.num2
+                        obj.opera = '-'
+                    }
+                }
+                if (res != null && res >= 0 && res < 100) {
+                    if (obj.num2 < 10 && obj.num3 < 10) {
+                        res *= obj.num3
+                        obj.opera1 = '×'
+                    } else if (res % obj.num3 == 0 && obj.num3 < 10) {
+                        res /= obj.num3
+                        obj.opera1 = '÷'
+                    } else {
+                        if (Math.round(Math.random())) {
+                            res += obj.num3
+                            obj.opera1 = '+'
+                        } else {
+                            res += -obj.num3
+                            obj.opera1 = '-'
+                        }
                     }
                     if (res >= 0 && res < 100) {
                         obj.res = res
@@ -74,6 +125,23 @@
             arr.forEach((item, idx) => {
                 str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=<input class="user" type="text">' + '<span class="res"></span></span>'
             })
+            document.querySelector('.set').style.display = 'none'
+            showtime.style.display = 'block'
+            btn.style.display = 'inline'
+            back.style.display = 'inline'
+            showtime.innerHTML = '还剩：' + time + '分钟'
+            timer = setInterval(function() {
+                time -= 1 / 60
+                showtime.innerHTML = '还剩：' + time.toFixed(2) + '分钟'
+                if (time <= 0) {
+                    clearInterval(timer)
+                    check()
+                    alert('时间到')
+                    user1.forEach((item, idx) => {
+                        item.setAttribute('disabled', true)
+                    })
+                }
+            }, 1000)
             box.innerHTML = str
             var user1 = document.querySelectorAll('.user')
             user1.forEach((item, idx) => {
@@ -86,14 +154,13 @@
                 })
             })
         }
-        var box = document.querySelector('#box')
-        var btn = document.querySelector('#btn')
-        var btn2 = document.querySelector('#btn2')
-        set()
-        btn.addEventListener('click', function() {
+
+        function check() {
+
             var user = document.querySelectorAll('.user')
             var rr = document.querySelectorAll('.res')
             var num = 0
+            clearInterval(timer)
             arr.forEach((item, idx) => {
                 rr[idx].innerHTML = '答案：' + item.res
                 if (item.res != user[idx].value) {
@@ -106,9 +173,26 @@
             } else {
                 alert('本次全部做对，恭喜！')
             }
+        }
+        var box = document.querySelector('#box')
+        var btn = document.querySelector('#btn')
+        var btn2 = document.querySelector('#btn2')
+        var back = document.querySelector('#back')
+        btn.addEventListener('click', function() {
+            check()
         })
         btn2.addEventListener('click', function() {
-            set()
+            var n = Number(number.value)
+            var t = Number(minute.value)
+            set(n, t)
+        })
+        back.addEventListener('click', function() {
+            box.innerHTML = ''
+            clearInterval(timer)
+            showtime.innerHTML = ''
+            document.querySelector('.set').style.display = 'block'
+            btn.style.display = 'none'
+            this.style.display = 'none'
         })
     </script>
 </body>

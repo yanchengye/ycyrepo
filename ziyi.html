@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        b {
+            margin-right: 10px;
+        }
+        
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+        
+        .width {
+            display: inline-block;
+            width: 10em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+    </div>
+    <button id="btn">提交答案</button>
+    <script>
+        var arr = []
+        var box = document.querySelector('#box')
+        var btn = document.querySelector('#btn')
+        while (arr.length < 100) {
+            var obj = {}
+            var res = null
+            obj.num1 = Math.round(Math.random() * 99)
+            obj.num2 = Math.round(Math.random() * 99)
+            obj.num3 = Math.round(Math.random() * 99)
+            if (Math.round(Math.random())) {
+                res += obj.num1 + obj.num2
+                obj.opera = '+'
+            } else {
+                res = obj.num1 - obj.num2
+                obj.opera = '-'
+            }
+            if (Math.round(Math.random())) {
+                res += obj.num3
+                obj.opera1 = '+'
+            } else {
+                res += -obj.num3
+                obj.opera1 = '-'
+            }
+            if (res >= 0) {
+                obj.res = res
+                arr.push(obj)
+            }
+        }
+        var str = ''
+        arr.forEach((item, idx) => {
+            str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=</span><input class="user" type="text">' + '<span class="res"></span><br>'
+        })
+        box.innerHTML = str
+        btn.addEventListener('click', function() {
+            var user = document.querySelectorAll('.user')
+            var rr = document.querySelectorAll('.res')
+            arr.forEach((item, idx) => {
+                rr[idx].innerHTML = item.res
+                if (item.res != user[idx].value) {
+                    user[idx].style.color = 'red'
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -50,7 +50,7 @@
                 res = obj.num1 - obj.num2
                 obj.opera = '-'
             }
-            if (res < 100) {
+            if (res >= 0 && res < 100) {
                 if (Math.round(Math.random())) {
                     res += obj.num3
                     obj.opera1 = '+'
@@ -66,7 +66,7 @@
         }
         var str = ''
         arr.forEach((item, idx) => {
-            str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=</span><input class="user" type="text">' + '<span class="res"></span><br>'
+            str += '<span class="width"><b>' + (idx + 1) + '</b>' + '<span>' + item.num1 + '</span>' + '<span>' + item.opera + '</span>' + '<span>' + item.num2 + '</span>' + '<span>' + item.opera1 + '</span>' + '<span>' + item.num3 + '</span>' + '=</span><input class="user" type="text">' + '答案：<span class="res"></span><br>'
         })
         box.innerHTML = str
         btn.addEventListener('click', function() {

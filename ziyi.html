@@ -131,12 +131,11 @@
             back.style.display = 'inline'
             showtime.innerHTML = '还剩：' + time + '分钟'
             timer = setInterval(function() {
-                time -= 1 / 60
                 showtime.innerHTML = '还剩：' + time.toFixed(2) + '分钟'
+                time -= 1 / 60
                 if (time <= 0) {
                     clearInterval(timer)
                     check()
-                    alert('时间到')
                     user1.forEach((item, idx) => {
                         item.setAttribute('disabled', true)
                     })

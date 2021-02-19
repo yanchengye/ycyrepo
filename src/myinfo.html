@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>my info</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<script src="./js/swiper.min.js" charset="utf-8"></script>
+		<script src="./js/swiper.animate1.0.2.min.js" charset="utf-8"></script>
+		<script src="./js/9.29zepto.js" charset="utf-8"></script>
+		<script src="./js/9.29touch.js" charset="utf-8"></script>
+		<script src="./js/intro.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="./css/intro.css">
+		<link rel="stylesheet" href="./css/animate.min.css">
+		<link rel="stylesheet" href="./css/swiper.min.css">
+		<link rel="stylesheet" href="./css/iconfont.css">
+		<script src="./js/iscroll.js.下载" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--开始动画-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容1</p>
+				</div>
+				<div class="swiper-slide">
+					<p class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容2</p>
+				</div>
+				<div class="swiper-slide">
+					<p class="ani" swiper-animate-effect="shake" swiper-animate-duration="1.5s" swiper-animate-delay="0s">内容3</p>
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+		<header>
+			<span></span>
+			<span>简历</span>
+			<span>+</span>
+		</header>
+		<div id="container">
+			<section class="content active" id="iscroll1">
+				<div id="pullDown" class="">
+					<span class="pullDownIcon"></span>
+					<span class="pullDownLabel">Pull down to refresh...</span>
+				</div>
+				<div id="item1">
+					
+					<div>
+						<img src="./images/h5.png" alt="">
+						<span>html5</span>
+					</div>
+					<div>
+						<img src="./images/css3.png" alt="">
+						<span>css3</span>
+					</div>
+					<div>
+						<img src="./images/js.png" alt="">
+						<span>javascript</span>
+					</div>
+					<div>
+						<img src="./images/jquery.png" alt="">
+						<span>jquery</span>
+					</div>
+					<!-- <div>
+						<img src="./images/zepto.png" alt="">
+						<span>zepto</span>
+					</div>
+					<div>
+						<img src="./images/gulp.png" alt="">
+						<span>gulp</span>
+					</div> -->
+					
+				</div>
+				<div id="pullUp" class="">
+					<span class="pullUpIcon"></span>
+					<span class="pullUpLabel">Pull up to load more...</span>
+				</div>
+			</section>
+			<section class="content" id="iscroll2">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+				</ul>
+			</section>
+			<section class="content">
+				section3
+				<audio src="http://res1.eqh5.com/7cf5845a606d48569d129da96d76ece7.mp3"  autoplay="true" preload="true"></audio>
+			</section>
+			<section class="content">
+				section4
+			</section>
+		</div>
+		<footer>
+			<div class="f-content active">
+				<i class="iconfont">&#xe649;</i>
+				<span>技能</span>
+			</div>
+			<div class="f-content">
+				<span class="iconfont">&#xe623;</span>
+				<span>作品</span>
+			</div>
+			<div class="f-content">
+				<span class="iconfont">&#xe6b2;</span>
+				<span>经历</span>
+			</div>
+			<div class="f-content">
+				<span class="iconfont">&#xe608;</span>
+				<span>我</span>
+			</div>
+		</footer>
+		<script>
+			// var arr = [{'src':'./images/zepto.png','name':'zapto'},{'src':'./images/gulp.png','name':'gulp'}];
+			$(function(){
+				// var oIscroll = document.getElementById("iscroll1");
+				// var myScroll = new IScroll(oIscroll,{
+				// 	hScrollbar:false,            //横向滚动禁止
+				// 	vScrollbar:true,            //纵向滚动开启
+				// 	bounce:true
+				// });
+				// var myScroll1，
+				// 	oIscroll = document.getElementById("iscroll1");
+			    // function loaded() {
+			    //     setTimeout(function () {
+			    //         myScroll1 = new iScroll(oIscroll,{
+				// 			hScrollbar: false,            //横向滚动禁止
+				// 			vScrollbar: true,            //纵向滚动开启
+				// 			scrollbars: true,            //激活滚动条
+				// 			mouseWheel: true,             //激活鼠标滚轮
+				// 			onScrollEnd: function(){
+				// 				console.log('end');
+				// 			}
+				// 		});
+			    //     }, 100);
+			    // }
+			    // window.addEventListener('load', loaded, false);
+				// console.log(oIscroll);
+				
+				var mySwiper = new Swiper ('.swiper-container', {
+					onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+					swiperAnimateCache(swiper); //隐藏动画元素 
+					swiperAnimate(swiper); //初始化完成开始动画
+					}, 
+					onSlideChangeEnd: function(swiper){ 
+					swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+					var $index = $('.swiper-slide-active').index();
+				},
+				pagination: '.swiper-pagination',   //启用分页器
+				uniqueNavElements :false,         //对容器外的原点也起效
+				paginationElement : 'div',      //自定义远点标签
+				paginationHide :false,           //显示或隐藏分页器
+				paginationClickable: true
+					})
+			})
+		</script>
+	</body>
+</html>

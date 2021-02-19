@@ -1,0 +1,14 @@
+$buttonBg: red;
+$fontColor: #fff;
+
+.swiper-container{
+	.swiper-wrapper{
+		.swiper-slide{
+			button{
+				border:0;
+				background-color: $buttonBg;
+				color: $fontColor;
+			}
+		}
+	}
+}

@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*头部*/
+
+header {
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    font-size: 26px;
+    color: #fff;
+    background: #37363b;
+    position: fixed;
+    top: 0;
+    display: flex;
+}
+
+header span:nth-child(1) {
+    /*display: flex;*/
+    flex: 1;
+}
+
+header span:nth-child(2) {
+    flex: 8;
+    display: flex;
+    justify-content: center;
+}
+
+header span:nth-child(3) {
+    flex: 1;
+    display: flex;
+}
+
+
+/*底部*/
+
+footer {
+    width: 100%;
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    background-color: #f7f7f7;
+    border-top: 1px solid #aeb1b8;
+    display: flex;
+    justify-content: center;
+}
+
+.f-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+footer .active {
+    background-color: #b7b1b9;
+}
+
+
+/*中间容器*/
+
+#container {
+    width: 100%;
+    position: absolute;
+    top: 45px;
+    bottom: 49px;
+    overflow: hidden;
+}
+
+.content ul li {
+    height: 100px;
+}
+
+
+/*上拉加载，下拉刷新*/
+
+#pullDown, #pullUp {
+    background: #fff;
+    height: 40px;
+	width: 100%;
+    line-height: 40px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 14px;
+    color: #888;
+}
+
+#pullDown .pullDownIcon, #pullUp .pullUpIcon {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: url(pull-icon@2x.png) 0 0 no-repeat;
+    -webkit-background-size: 40px 80px;
+    background-size: 40px 80px;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 250ms;
+}
+
+#pullDown .pullDownIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+#pullUp .pullUpIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+    background-position: 0 100%;
+    -webkit-transform: rotate(0deg) translateZ(0);
+    -webkit-transition-duration: 0ms;
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0deg) translateZ(0);
+    }
+    to {
+        -webkit-transform: rotate(360deg) translateZ(0);
+    }
+}
+
+
+/*swiper开始*/
+
+body .swiper-container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+	display: none;
+}
+
+.swiper-container p {
+    line-height: 500px;
+    text-align: center;
+    font-size: 50px;
+    color: red;
+}
+
+.swiper-wrapper div:nth-child(1) {
+    background-color: purple;
+}
+
+.swiper-wrapper div:nth-child(2) {
+    background-color: green;
+}
+
+.swiper-wrapper div:nth-child(3) {
+    background-color: grey;
+}
+
+.swiper-wrapper div:nth-child(4) {
+    background-color: orange;
+}
+
+#container .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 25%;
+    height: 50px;
+    border-radius: 0;
+    float: left;
+    margin: 0;
+}
+
+#container .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 0;
+}
+
+
+/*swiper结束*/
+
+
+/*选项卡开始*/
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#container .active {
+    display: block;
+}
